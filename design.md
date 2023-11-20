@@ -59,3 +59,11 @@
  - Abandoned Castle
  - Chateau
     - needs modification (smaller?)
+
+## Class Number Values:
+- Bancroft : 1
+- Hansa : 2
+- Mirabelle : 3
+- Suzuka : 4
+- Esteille : 5
+- Glass : 6
