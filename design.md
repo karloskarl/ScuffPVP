@@ -4,7 +4,11 @@
     - Optimized for 4 players, but 1v1s should still be playable
     - Needs incentive not to camp
  - Basic round format
-    - 
+    - Go to player selection → select players
+    - Go to map selection → random player gets to choose map
+    - Players are loaded into map, fight at 5 lives each until one remains
+    - Reset
+
 
 ## Damage System
  - Health system similar to vanilla,displayed in hearts, stored seperately
