@@ -1,3 +1,7 @@
   name: ScuffPVP
-  main: com.scuffpvp.Main
+  main: com.scuffpvp.ScuffPVP
   version: '0.1'
+  commands:
+    class:
+      description: Chooses a class for the nearest player.
+      usage: /class classID

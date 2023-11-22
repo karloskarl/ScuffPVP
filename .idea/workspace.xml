@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/MyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/Main.java" beforeDir="false" />
     </list>
+    <list id="2be05d7e-10d5-4696-9454-97e1fe521734" name="Changes by colemasson" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -69,6 +77,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700683368600</updated>
       <workItem from="1700683369457" duration="160000" />
-      <workItem from="1700683538027" duration="1315000" />
+      <workItem from="1700683538027" duration="6200000" />
     </task>
     <task id="LOCAL-00001" summary="original commit">
       <option name="closed" value="true" />
@@ -99,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700684412960</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changes">
+      <option name="closed" value="true" />
+      <created>1700685126162</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700685126162</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
