@@ -1,6 +1,8 @@
 package com.scuffpvp.commands;
 
+import com.scuffpvp.classes.Bancroft;
 import com.scuffpvp.classes.ClassManager;
+import com.scuffpvp.classes.Hansa;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +18,10 @@ public class SelectClassCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
             Player player = (Player) sender;
-
+            switch (args[0]) {
+                case "Hansa" -> classManager.assignClass(player, new Hansa());
+                case "Bancroft" -> classManager.assignClass(player, new Bancroft());
+            }
             return true;
         }
         return false;

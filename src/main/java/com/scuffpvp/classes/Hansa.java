@@ -11,7 +11,7 @@ import static org.bukkit.Material.*;
 public class Hansa extends Class{
 
     public Hansa(){
-        super(20,"Hansa");
+        super(20,"Hansa", 0.1);
     }
 
     @Override

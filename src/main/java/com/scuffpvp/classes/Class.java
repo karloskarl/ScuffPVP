@@ -11,8 +11,9 @@ public abstract class Class implements Listener {
     private int health;
     private String name;
     private Map<Integer,ItemStack> items;
+    private double speed;
 
-    public Class(int health, String name) {
+    public Class(int health, String name, double speed) {
         this.health = health;
         this.name = name;
         this.items = generateClassItems();
@@ -39,5 +40,9 @@ public abstract class Class implements Listener {
 
     public Map<Integer, ItemStack> getItems() {
         return items;
+    }
+
+    public double getSpeed() {
+        return speed;
     }
 }
