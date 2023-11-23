@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" afterDir="false" />
+    <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="added other class files as well as speed field">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Esteille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Esteille.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Mirabelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Mirabelle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Suzuka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Suzuka.java" afterDir="false" />
     </list>
-    <list id="2be05d7e-10d5-4696-9454-97e1fe521734" name="Changes by colemasson" comment="" />
+    <list id="2be05d7e-10d5-4696-9454-97e1fe521734" name="Changes by colemasson" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +28,22 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <option name="groupModules" value="false" />
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,12 +56,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "karloskarl"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;karloskarl&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -50,6 +69,15 @@
         <option name="url" value="https://github.com/karloskarl/ScuffPVP" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="3" end1="3" start2="4" end2="5" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
+        <range start1="17" end1="17" start2="19" end2="30" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,12 +105,69 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Programmid\ScuffPVP\scuffpvp\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.scuffpvp [jar]">
+    <configuration name="scuffpvp [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="scuffpvp [properties]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="properties" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.scuffpvp [jar]" />
+        <item itemvalue="Gradle.scuffpvp [properties]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -92,7 +177,9 @@
       <option name="presentableId" value="Default" />
       <updated>1700683368600</updated>
       <workItem from="1700683369457" duration="160000" />
-      <workItem from="1700683538027" duration="6200000" />
+      <workItem from="1700683538027" duration="6222000" />
+      <workItem from="1700692334210" duration="301000" />
+      <workItem from="1700707014893" duration="8438000" />
     </task>
     <task id="LOCAL-00001" summary="original commit">
       <option name="closed" value="true" />
@@ -118,7 +205,47 @@
       <option name="project" value="LOCAL" />
       <updated>1700685126162</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changes">
+      <option name="closed" value="true" />
+      <created>1700689759624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700689759624</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed class structure">
+      <option name="closed" value="true" />
+      <created>1700708775270</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700708775270</updated>
+    </task>
+    <task id="LOCAL-00006" summary="classManager addition">
+      <option name="closed" value="true" />
+      <created>1700710403663</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700710403663</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added commands to yml">
+      <option name="closed" value="true" />
+      <created>1700710807269</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700710807269</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added other class files as well as speed field">
+      <option name="closed" value="true" />
+      <created>1700712009731</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700712009731</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +254,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="original commit" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="Changed class structure" />
+    <MESSAGE value="classManager addition" />
+    <MESSAGE value="added commands to yml" />
+    <MESSAGE value="added other class files as well as speed field" />
+    <option name="LAST_COMMIT_MESSAGE" value="added other class files as well as speed field" />
   </component>
 </project>
