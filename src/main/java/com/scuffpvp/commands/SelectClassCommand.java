@@ -1,5 +1,6 @@
 package com.scuffpvp.commands;
 
+import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.classes.*;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.command.Command;

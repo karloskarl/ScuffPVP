@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="added other class files as well as speed field">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="3rd working version">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/JoinListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/TickScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Esteille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Esteille.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Mirabelle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Mirabelle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Suzuka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Suzuka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" afterDir="false" />
     </list>
-    <list id="2be05d7e-10d5-4696-9454-97e1fe521734" name="Changes by colemasson" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" afterDir="false" />
+    <list id="2be05d7e-10d5-4696-9454-97e1fe521734" name="Changes by colemasson" comment="3rd working version">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/listeners/BancroftListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +76,25 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/ClassManager.java">
+    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
-        <range start1="3" end1="3" start2="4" end2="5" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="17" end1="17" start2="19" end2="30" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
+        <range start1="10" end1="11" start2="11" end2="12" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="12" end1="14" start2="13" end2="15" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="19" end1="25" start2="20" end2="26" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="36" end1="38" start2="37" end2="39" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="46" end1="48" start2="47" end2="49" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java">
+      <ranges>
+        <range start1="2" end1="6" start2="2" end2="3" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="9" end1="9" start2="6" end2="8" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
+        <range start1="10" end1="11" start2="9" end2="9" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="13" end1="14" start2="11" end2="13" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
+        <range start1="16" end1="17" start2="15" end2="16" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="18" end1="21" start2="17" end2="20" changelist="2be05d7e-10d5-4696-9454-97e1fe521734" />
+        <range start1="22" end1="32" start2="21" end2="23" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
       </ranges>
     </file>
   </component>
@@ -179,7 +198,7 @@
       <workItem from="1700683369457" duration="160000" />
       <workItem from="1700683538027" duration="6222000" />
       <workItem from="1700692334210" duration="301000" />
-      <workItem from="1700707014893" duration="8438000" />
+      <workItem from="1700707014893" duration="23628000" />
     </task>
     <task id="LOCAL-00001" summary="original commit">
       <option name="closed" value="true" />
@@ -245,11 +264,62 @@
       <option name="project" value="LOCAL" />
       <updated>1700712009731</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1st working version">
+      <option name="closed" value="true" />
+      <created>1700715547484</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700715547484</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1st working version">
+      <option name="closed" value="true" />
+      <created>1700715553380</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700715553380</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changes by colemasson">
+      <option name="closed" value="true" />
+      <created>1700715675996</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700715675996</updated>
+    </task>
+    <task id="LOCAL-00012" summary="2nd working version">
+      <option name="closed" value="true" />
+      <created>1700720518700</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700720518700</updated>
+    </task>
+    <task id="LOCAL-00013" summary="3rd working version">
+      <option name="closed" value="true" />
+      <created>1700720529060</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700720529060</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="original commit" />
@@ -258,6 +328,22 @@
     <MESSAGE value="classManager addition" />
     <MESSAGE value="added commands to yml" />
     <MESSAGE value="added other class files as well as speed field" />
-    <option name="LAST_COMMIT_MESSAGE" value="added other class files as well as speed field" />
+    <MESSAGE value="1st working version" />
+    <MESSAGE value="Changes by colemasson" />
+    <MESSAGE value="2nd working version (now with text!)" />
+    <MESSAGE value="2nd working version" />
+    <MESSAGE value="3rd working version" />
+    <option name="LAST_COMMIT_MESSAGE" value="3rd working version" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
