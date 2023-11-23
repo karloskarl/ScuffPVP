@@ -15,9 +15,9 @@ public class Mirabelle extends Class{
     @Override
     public Map<Integer, ItemStack> generateClassItems() {
         Map<Integer, ItemStack> items = new HashMap<>();
-        items.put(0,new ItemStack(NETHERITE_SWORD));
-        items.put(1,new ItemStack(SHIELD));
-        items.put(2,new ItemStack(FIRE_CHARGE));
+        items.put(0,new ItemStack(NETHERITE_HOE));
+        items.put(1,new ItemStack(WARPED_FUNGUS));
+        items.put(2,new ItemStack(BLAZE_ROD));
         return items;
     }
 }
