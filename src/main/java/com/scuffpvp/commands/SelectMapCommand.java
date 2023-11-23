@@ -1,15 +1,15 @@
 package com.scuffpvp.commands;
 
-import com.scuffpvp.classes.ClassManager;
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class SelectMapCommand implements CommandExecutor {
-    private final ClassManager classManager;
+    private final PlayerManager playerManager;
 
-    public SelectMapCommand(ClassManager classManager) {
-        this.classManager = classManager;
+    public SelectMapCommand(PlayerManager playerManager) {
+        this.playerManager = playerManager;
     }
 
     @Override

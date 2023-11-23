@@ -1,6 +1,7 @@
 package com.scuffpvp.classes;
 
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,4 +21,6 @@ public class Bancroft extends Class {
         items.put(2, new ItemStack(FIRE_CHARGE));
         return items;
     }
+
+
 }

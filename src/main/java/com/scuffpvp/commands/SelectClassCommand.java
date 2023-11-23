@@ -9,21 +9,21 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class SelectClassCommand implements CommandExecutor {
-    private final ClassManager classManager;
+    private final PlayerManager playerManager;
 
-    public SelectClassCommand(ClassManager classManager) {
-        this.classManager = classManager;
+    public SelectClassCommand(PlayerManager playerManager) {
+        this.playerManager = playerManager;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player player) {
             switch (args[0].toLowerCase()) {
-                case "hansa" -> classManager.assignClass(player, new Hansa());
-                case "bancroft" -> classManager.assignClass(player, new Bancroft());
-                case "mirabelle" -> classManager.assignClass(player, new Mirabelle());
-                case "suzuka" -> classManager.assignClass(player, new Suzuka());
-                case "esteille" -> classManager.assignClass(player, new Esteille());
-                case "glass" -> classManager.assignClass(player, new Glass());
+                case "hansa" -> playerManager.getPlayerData(player).setClass(new Hansa());
+                case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft());
+                case "mirabelle" -> playerManager.getPlayerData(player).setClass(new Mirabelle());
+                case "suzuka" -> playerManager.getPlayerData(player).setClass(new Suzuka());
+                case "esteille" -> playerManager.getPlayerData(player).setClass(new Esteille());
+                case "glass" -> playerManager.getPlayerData(player).setClass(new Glass());
                 case "list" -> {
                     player.sendMessage("""
                             Hansa
@@ -35,8 +35,8 @@ public class SelectClassCommand implements CommandExecutor {
                     return true;
                 }
                 case "remove" -> {
-                    if(classManager.getPlayerClass(player) != null) {
-                        classManager.clearClass(player);
+                    if(playerManager.getPlayerData(player).getPlayerClass() != null) {
+                        playerManager.getPlayerData(player).clearClass();
                         Utils.sendConfirmationMessage(player,"Removed class.");
                         return true;
                     } else {
@@ -45,8 +45,8 @@ public class SelectClassCommand implements CommandExecutor {
                     }
                 }
                 case "show" -> {
-                    if(classManager.getPlayerClass(player) != null) {
-                        Utils.sendConfirmationMessage(player, classManager.getPlayerClass(player).getName());
+                    if(playerManager.getPlayerData(player).getPlayerClass() != null) {
+                        Utils.sendConfirmationMessage(player, playerManager.getPlayerData(player).getPlayerClass().getName());
                         return true;
                     } else {
                         Utils.sendErrorMessage(player, "Cannot show class that doesn't exist!");
