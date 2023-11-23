@@ -9,19 +9,17 @@ import java.util.Map;
 import static org.bukkit.Material.*;
 
 public class Hansa extends Class{
-    private int health;
-    private String name;
-    private Map<Integer,ItemStack> items;
 
     public Hansa(){
-        name = "Hansa";
-        health = 20;
-        items = new HashMap<>();
-
-        items.put(0,new ItemStack(CROSSBOW));
-        items.put(1,new ItemStack(IRON_SWORD));
-        items.put(3,new ItemStack(ARROW,2));
+        super(20,"Hansa");
     }
 
-
+    @Override
+    public Map<Integer, ItemStack> generateClassItems(){
+        Map<Integer, ItemStack> items = new HashMap<>();
+        items.put(0,new ItemStack(CROSSBOW));
+        items.put(1,new ItemStack(IRON_SWORD));
+        items.put(2,new ItemStack(ARROW,2));
+        return items;
+    }
 }

@@ -12,6 +12,12 @@ public abstract class Class implements Listener {
     private String name;
     private Map<Integer,ItemStack> items;
 
+    public Class(int health, String name) {
+        this.health = health;
+        this.name = name;
+        this.items = generateClassItems();
+    }
+
     void setItems(Player player) {
         for(int i = 0; i < 40; i++){
             ItemStack currentItem = items.get(i);
@@ -20,6 +26,8 @@ public abstract class Class implements Listener {
             }
         }
     }
+
+    public abstract Map<Integer, ItemStack> generateClassItems();
 
     public int getHealth() {
         return health;
