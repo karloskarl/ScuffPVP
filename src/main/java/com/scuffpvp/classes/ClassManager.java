@@ -12,11 +12,13 @@ public class ClassManager {
     private Map<String, Class> playerClasses;
     private ScuffPVP plugin;
 
-    public ClassManager() {
+    public ClassManager(ScuffPVP plugin) {
+        this.plugin = plugin;
         this.playerClasses = new HashMap<>();
     }
 
     public void assignClass(Player player, Class playerClass) {
+        playerClasses.remove(player.getName());
         playerClasses.put(player.getName(), playerClass);
     }
 
@@ -33,5 +35,9 @@ public class ClassManager {
 
     public Class getPlayerClass(Player player) {
         return playerClasses.get(player.getName());
+    }
+
+    public void clearClass(Player player) {
+        playerClasses.remove(player.getName());
     }
 }

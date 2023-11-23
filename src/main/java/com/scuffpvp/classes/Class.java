@@ -13,6 +13,7 @@ public abstract class Class {
     private Map<Integer,ItemStack> items;
     private double speed;
 
+
     public Class(int health, String name, double speed) {
         this.health = health;
         this.name = name;
@@ -36,4 +37,5 @@ public abstract class Class {
     public double getSpeed() {
         return speed;
     }
+
 }

@@ -1,6 +1,9 @@
 package com.scuffpvp;
 
+import com.scuffpvp.classes.Bancroft;
+
 import com.scuffpvp.classes.ClassManager;
+import com.scuffpvp.classes.listeners.BancroftListener;
 import com.scuffpvp.commands.SelectClassCommand;
 import com.scuffpvp.commands.SelectMapCommand;
 import com.scuffpvp.commands.StartGameCommand;

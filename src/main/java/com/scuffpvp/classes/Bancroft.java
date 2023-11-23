@@ -7,7 +7,7 @@ import java.util.Map;
 
 import static org.bukkit.Material.*;
 
-public class Bancroft extends Class{
+public class Bancroft extends Class {
     public Bancroft() {
         super(30, "Bancroft", 0.075);
     }
