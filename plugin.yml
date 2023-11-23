@@ -1,7 +1,23 @@
-  name: ScuffPVP
-  main: com.scuffpvp.ScuffPVP
-  version: '0.1'
-  commands:
-    class:
-      description: Chooses a class for the nearest player.
-      usage: /class className
+name: ScuffPVP
+main: com.scuffpvp.ScuffPVP
+version: 0.1
+commands:
+  class:
+    description: Chooses a class for the nearest player
+    usage: /class className
+    permission: scuffpvp.player
+  map:
+    description: Chooses a map to play on
+    usage: /map mapName
+    permission: scuffpvp.player
+  start:
+    description: Starts a game
+    usage: /start
+    permission: scuffpvp.player
+permissions:
+  scuffpvp.player:
+    description: Default player permission
+    default: true
+  scuffpvp.admin:
+    description: Default op permission
+    default: op
