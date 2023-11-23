@@ -1,5 +1,6 @@
 package com.scuffpvp.classes;
 
+import com.scuffpvp.ScuffPVP;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 public class ClassManager {
     private Map<String, Class> playerClasses;
+    private ScuffPVP plugin;
 
     public ClassManager() {
         this.playerClasses = new HashMap<>();

@@ -15,9 +15,9 @@ public class Bancroft extends Class{
     @Override
     public Map<Integer, ItemStack> generateClassItems() {
         Map<Integer, ItemStack> items = new HashMap<>();
-        items.put(0,new ItemStack(NETHERITE_SWORD));
-        items.put(1,new ItemStack(SHIELD));
-        items.put(2,new ItemStack(FIRE_CHARGE));
+        items.put(0, new ItemStack(NETHERITE_SWORD));
+        items.put(1, new ItemStack(IRON_DOOR));
+        items.put(2, new ItemStack(FIRE_CHARGE));
         return items;
     }
 }

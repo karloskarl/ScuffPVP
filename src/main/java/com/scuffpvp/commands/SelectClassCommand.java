@@ -22,6 +22,7 @@ public class SelectClassCommand implements CommandExecutor {
                 case "Hansa" -> classManager.assignClass(player, new Hansa());
                 case "Bancroft" -> classManager.assignClass(player, new Bancroft());
             }
+            player.sendMessage("Chosen class: " + args[0]);
             return true;
         }
         return false;

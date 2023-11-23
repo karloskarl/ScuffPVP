@@ -11,11 +11,13 @@ public class ScuffPVP extends JavaPlugin {
     public static ClassManager classManager;
     @Override
     public void onEnable() {
-        classManager = new ClassManager();
+        classManager = new ClassManager(this);
         //registers the commands as executors
         getCommand("class").setExecutor(new SelectClassCommand(classManager));
         getCommand("map").setExecutor(new SelectMapCommand(classManager));
         getCommand("start").setExecutor(new StartGameCommand(classManager));
+
+        getServer().getPluginManager().registerEvents(new BancroftListener(classManager), this);
 
         BukkitRunnable task = new BukkitRunnable() {
             @Override

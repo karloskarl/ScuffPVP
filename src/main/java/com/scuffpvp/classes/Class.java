@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 
-public abstract class Class implements Listener {
+public abstract class Class {
     private int health;
     private String name;
     private Map<Integer,ItemStack> items;
