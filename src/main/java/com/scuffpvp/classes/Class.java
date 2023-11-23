@@ -19,15 +19,6 @@ public abstract class Class implements Listener {
         this.items = generateClassItems();
     }
 
-    void setItems(Player player) {
-        for(int i = 0; i < 40; i++){
-            ItemStack currentItem = items.get(i);
-            if(currentItem != null) {
-                player.getInventory().setItem(i, currentItem);
-            }
-        }
-    }
-
     public abstract Map<Integer, ItemStack> generateClassItems();
 
     public int getHealth() {

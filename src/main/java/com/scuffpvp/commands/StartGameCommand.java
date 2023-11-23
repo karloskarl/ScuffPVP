@@ -14,6 +14,7 @@ public class StartGameCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        classManager.setItems();
         return false;
     }
 }
