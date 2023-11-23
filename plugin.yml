@@ -4,4 +4,4 @@
   commands:
     class:
       description: Chooses a class for the nearest player.
-      usage: /class classID
+      usage: /class className
