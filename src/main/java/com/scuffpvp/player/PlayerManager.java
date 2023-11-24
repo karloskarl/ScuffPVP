@@ -10,25 +10,37 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Maps each player to a PlayerData object, created to more easily assign additional data
+ * that is not included in the spigot Player object
+ */
 public class PlayerManager {
-    Map<Player, PlayerData> playerMap;
+    /**
+     * Maps each player to a PlayerData object
+     */
+    private Map<Player, PlayerData> playerMap;
 
+    /**
+     * Initializes the HashMap that pairs a player with a PlayerData object
+     */
     public PlayerManager(){
         playerMap = new HashMap<>();
     }
 
+    /**
+     * Puts a player into the map. Assigns an empty PlayerData object
+     * @param player to be put into the map
+     */
     public void assignPlayer(Player player){
         playerMap.put(player,new PlayerData(player));
     }
 
+    /**
+     * Uses the class information in PlayerData to give every player in the world their items
+     */
     public void setItems() {
         for(Player player : Bukkit.getOnlinePlayers()) {
-            for(int i = 0; i < 40; i++){
-                ItemStack currentItem = playerMap.get(player).getPlayerClass().getItems().get(i);
-                if(currentItem != null) {
-                    player.getInventory().setItem(i, currentItem);
-                }
-            }
+            getPlayerData(player).getPlayerClass().generateClassItems().forEach((k,v) -> player.getInventory().setItem(k, v));
         }
     }
 

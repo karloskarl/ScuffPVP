@@ -11,7 +11,9 @@ import java.util.*;
 import static org.bukkit.Material.*;
 
 public class Bancroft extends Class {
-    public Bancroft() {
+
+    public Bancroft(Player player) {
         super(30, "Bancroft", 0.075);
+        addAbility(new Stomp(player));
     }
 }
