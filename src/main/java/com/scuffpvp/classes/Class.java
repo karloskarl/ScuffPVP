@@ -1,5 +1,6 @@
 package com.scuffpvp.classes;
 
+import com.scuffpvp.abilities.Ability;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;

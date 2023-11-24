@@ -8,22 +8,36 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Class that controls the /class command
+ */
 public class SelectClassCommand implements CommandExecutor {
+    /**
+     * The player manager object.
+     */
     private final PlayerManager playerManager;
 
+    /**
+     * Creates the controller object.
+     * @param playerManager The player manager instance to be used.
+     */
     public SelectClassCommand(PlayerManager playerManager) {
         this.playerManager = playerManager;
     }
+
+    /**
+     * Controls the behavior of the /class command.
+     * @param sender Source of the command
+     * @param command Command which was executed
+     * @param label Alias of the command which was used
+     * @param args Passed command arguments
+     * @return Whether the command was run successfully.
+     */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player player) {
             switch (args[0].toLowerCase()) {
-                case "hansa" -> playerManager.getPlayerData(player).setClass(new Hansa());
-                case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft());
-                case "mirabelle" -> playerManager.getPlayerData(player).setClass(new Mirabelle());
-                case "suzuka" -> playerManager.getPlayerData(player).setClass(new Suzuka());
-                case "esteille" -> playerManager.getPlayerData(player).setClass(new Esteille());
-                case "glass" -> playerManager.getPlayerData(player).setClass(new Glass());
+                case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft(player));
                 case "list" -> {
                     player.sendMessage("""
                             Hansa

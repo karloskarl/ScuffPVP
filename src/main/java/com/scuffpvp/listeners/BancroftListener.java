@@ -1,17 +1,14 @@
 package com.scuffpvp.listeners;
 
-import com.scuffpvp.player.PlayerManager;
+import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.classes.Bancroft;
-import com.scuffpvp.utils.Utils;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import com.scuffpvp.player.PlayerData;
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.Listener;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +19,9 @@ import com.scuffpvp.player.PlayerManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 
+/**
+ * Class that hold the listener for the Bancroft Class
+ */
 public class BancroftListener implements Listener{
     private PlayerManager playerManager;
     private Map<String,Integer> cooldownMap;
@@ -33,6 +33,10 @@ public class BancroftListener implements Listener{
     }
 
 
+    /**
+     * Listens for player interaction events
+     * @param event The player interaction event when it occurs
+     */
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();

@@ -32,6 +32,11 @@ public class PlayerManager {
         }
     }
 
+    /**
+     * Returns the PlayerData object assigned to the specified player
+     * @param player the player to retrieve PlayerData of
+     * @return PlayerData
+     */
     public PlayerData getPlayerData(Player player){
         return playerMap.get(player);
     }
