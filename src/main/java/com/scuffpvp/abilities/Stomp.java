@@ -25,7 +25,7 @@ public class Stomp extends AOE{
 
     @Override
     public void spawnActivationParticles() {
-        getCaster().getWorld().spawnParticle(Particle.BLOCK_DUST,getCaster().getLocation(),1000,1.5,0.1,1.5,Bukkit.createBlockData(Material.DIRT));
+        getCaster().getWorld().spawnParticle(Particle.BLOCK_DUST,getCaster().getLocation(),1000,getMaxRadius()/2,0.1,getMaxRadius()/2,Bukkit.createBlockData(Material.DIRT));
     }
 
     @Override

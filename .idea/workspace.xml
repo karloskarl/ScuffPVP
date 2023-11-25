@@ -5,35 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="thursday work">
-      <change afterPath="$PROJECT_DIR$/ideas.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/AOE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Ability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Stomp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/ScuffPVP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Esteille.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Glass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Hansa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Mirabelle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Suzuka.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectClassCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/SelectMapCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/commands/StartGameCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/JoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/JoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/TickScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/TickScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Stomp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Stomp.java" afterDir="false" />
     </list>
-    <list id="28bc975e-aebc-454b-a1af-ce8a77a7f391" name="Changes by colemasson" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java" afterDir="false" />
-    </list>
+    <list id="28bc975e-aebc-454b-a1af-ce8a77a7f391" name="Changes by colemasson" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,55 +60,6 @@
         <option name="url" value="https://github.com/karloskarl/ScuffPVP" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="4" end1="9" start2="4" end2="6" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="11" end1="12" start2="8" end2="8" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="13" end1="14" start2="9" end2="11" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="15" end1="23" start2="12" end2="12" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="24" end1="24" start2="13" end2="16" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="26" end1="27" start2="18" end2="19" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="28" end1="28" start2="20" end2="24" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="30" end1="32" start2="26" end2="26" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="35" end1="35" start2="29" end2="33" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="38" end1="58" start2="36" end2="43" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="62" end1="64" start2="47" end2="51" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/player/PlayerManager.java">
-      <ranges>
-        <range start1="12" end1="12" start2="12" end2="16" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="13" end1="14" start2="17" end2="21" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="15" end1="15" start2="22" end2="25" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="19" end1="19" start2="29" end2="33" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="23" end1="23" start2="37" end2="40" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="25" end1="31" start2="42" end2="43" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="34" end1="34" start2="46" end2="51" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="5" end1="7" start2="8" end2="9" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="11" end1="12" start2="13" end2="15" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="13" end1="13" start2="16" end2="17" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="14" end1="25" start2="18" end2="18" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Class.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="51c2f731-811d-46e8-820a-e56b049a022b" />
-        <range start1="7" end1="7" start2="8" end2="11" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="12" end1="13" start2="16" end2="17" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="19" end1="20" start2="23" end2="24" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="21" end1="23" start2="25" end2="25" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="32" end1="34" start2="34" end2="36" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-        <range start1="40" end1="40" start2="42" end2="62" changelist="28bc975e-aebc-454b-a1af-ce8a77a7f391" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
