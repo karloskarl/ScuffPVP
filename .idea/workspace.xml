@@ -7,7 +7,7 @@
     <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="thursday work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Stomp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Stomp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" afterDir="false" />
     </list>
     <list id="28bc975e-aebc-454b-a1af-ce8a77a7f391" name="Changes by colemasson" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,11 +86,12 @@
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -146,6 +147,15 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.scuffpvp [jar]" />
@@ -167,6 +177,7 @@
       <workItem from="1700707014893" duration="25324000" />
       <workItem from="1700827779268" duration="13000" />
       <workItem from="1700844282903" duration="14545000" />
+      <workItem from="1700890801062" duration="2789000" />
     </task>
     <task id="LOCAL-00001" summary="original commit">
       <option name="closed" value="true" />

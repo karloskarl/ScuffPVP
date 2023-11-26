@@ -30,18 +30,21 @@ public class Parry extends AOE{
 
     @Override
     public void spawnActivationParticles() {
-        getCaster().getWorld().spawnParticle(Particle.SPELL,getCaster().getLocation(),1000,getMaxRadius()/2,0.1,getMaxRadius()/2);
+        getCaster().getWorld().spawnParticle(Particle.SPELL,getCaster().getLocation(),1000,getMaxRadius()/2,getMaxRadius()/2,getMaxRadius()/2);
     }
 
     @Override
     public void activate() {
         getSoundMix().forEach((k,v) -> getCaster().getWorld().playSound(getCaster().getLocation(),k,v,1));
         spawnActivationParticles();
-        for(Entity entity : getCaster().getNearbyEntities(getMaxRadius(),getMaxRadius(),getMaxRadius())){
-            if(Utils.getDistance(getCaster(),entity) <= getMaxRadius() && entity instanceof Projectile projectile){
-                projectile.setShooter(getCaster());
-                projectile.setVelocity(projectile.getVelocity().multiply(-1));
-                projectile.setRotation(projectile.getLocation().getYaw()*-1,projectile.getLocation().getPitch()*-1);
+        long startTime = System.currentTimeMillis();
+        while(System.currentTimeMillis()-startTime < 200) {
+            for (Entity entity : getCaster().getNearbyEntities(getMaxRadius(), getMaxRadius(), getMaxRadius())) {
+                if (Utils.getDistance(getCaster(), entity) <= getMaxRadius() && entity instanceof Projectile projectile && !projectile.getShooter().equals(getCaster())) {
+                    projectile.setShooter(getCaster());
+                    projectile.setVelocity(projectile.getVelocity().multiply(-1));
+                    projectile.setRotation(projectile.getLocation().getYaw() * -1, projectile.getLocation().getPitch() * -1);
+                }
             }
         }
     }
@@ -53,9 +56,9 @@ public class Parry extends AOE{
     @Override
     public Map<Sound, Float> getSoundMix() {
         Map<Sound,Float> sounds = new HashMap<>();
-        sounds.put(Sound.BLOCK_ANVIL_LAND, 1.5F);
+        sounds.put(Sound.BLOCK_ANVIL_LAND, 1.0F);
         sounds.put(Sound.BLOCK_METAL_HIT, 2.0F);
-        sounds.put(Sound.BLOCK_WOOD_HIT, 1.0F);
+        sounds.put(Sound.BLOCK_WOOD_HIT, 3.0F);
         return sounds;
     }
 
