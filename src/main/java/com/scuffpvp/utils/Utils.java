@@ -49,4 +49,8 @@ public class Utils {
         Location p2pos = p2.getLocation();
         return Math.sqrt(Math.pow(p1pos.getX() - p2pos.getX(),2)+Math.pow(p1pos.getY() - p2pos.getY(),2)+Math.pow(p1pos.getZ() - p2pos.getZ(),2));
     }
+
+    public static void spawnParticles(int count){
+        System.out.println("test");
+    }
 }
