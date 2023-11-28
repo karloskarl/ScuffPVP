@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 /**
  * Class that hold the listener for the Bancroft Class
  */
-public class BancroftListener implements Listener{
+public class ItemInteractionListener implements Listener{
     private PlayerManager playerManager;
     private Bancroft playerClass;
 
@@ -22,7 +22,7 @@ public class BancroftListener implements Listener{
      * Creates the listener object.
      * @param playerManager The player manager object.
      */
-    public BancroftListener(PlayerManager playerManager){
+    public ItemInteractionListener(PlayerManager playerManager){
         this.playerManager = playerManager;
     }
 
@@ -35,7 +35,7 @@ public class BancroftListener implements Listener{
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         PlayerData playerData = playerManager.getPlayerData(player);
-        if(playerData.getPlayerClass() != null) {
+        if(playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
                 if (event.getMaterial().equals(ability.getItems()[0].getType()) && playerData.checkCoolDown(ability)) {
                     ability.activate();
