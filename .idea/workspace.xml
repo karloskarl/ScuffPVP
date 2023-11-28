@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51c2f731-811d-46e8-820a-e56b049a022b" name="Changes" comment="thursday work">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/MeleeAttack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Sword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/abilities/Parry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/classes/Bancroft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scuffpvp/listeners/BancroftListener.java" afterDir="false" />
     </list>
     <list id="28bc975e-aebc-454b-a1af-ce8a77a7f391" name="Changes by colemasson" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +180,7 @@
       <workItem from="1700707014893" duration="25324000" />
       <workItem from="1700827779268" duration="13000" />
       <workItem from="1700844282903" duration="14545000" />
-      <workItem from="1700890801062" duration="2789000" />
+      <workItem from="1700890801062" duration="8652000" />
     </task>
     <task id="LOCAL-00001" summary="original commit">
       <option name="closed" value="true" />
