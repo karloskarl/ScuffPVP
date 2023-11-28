@@ -40,11 +40,7 @@ public class ItemInteractionListener implements Listener{
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         PlayerData playerData = playerManager.getPlayerData(player);
-<<<<<<< HEAD:src/main/java/com/scuffpvp/listeners/BancroftListener.java
-        if(playerData.getPlayerClass() != null && event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-=======
         if(playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
->>>>>>> origin/master:src/main/java/com/scuffpvp/listeners/ItemInteractionListener.java
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
                 if (event.getMaterial().equals(ability.getItems()[0].getType()) && playerData.checkCoolDown(ability)) {
                     ability.activate();
