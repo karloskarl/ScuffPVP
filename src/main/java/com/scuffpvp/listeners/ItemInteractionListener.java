@@ -19,7 +19,7 @@ import org.bukkit.inventory.ItemStack;
 /**
  * Class that hold the listener for the Bancroft Class
  */
-public class BancroftListener implements Listener{
+public class ItemInteractionListener implements Listener{
     private PlayerManager playerManager;
     private Bancroft playerClass;
 
@@ -27,7 +27,7 @@ public class BancroftListener implements Listener{
      * Creates the listener object.
      * @param playerManager The player manager object.
      */
-    public BancroftListener(PlayerManager playerManager){
+    public ItemInteractionListener(PlayerManager playerManager){
         this.playerManager = playerManager;
     }
 
@@ -40,7 +40,11 @@ public class BancroftListener implements Listener{
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         PlayerData playerData = playerManager.getPlayerData(player);
+<<<<<<< HEAD:src/main/java/com/scuffpvp/listeners/BancroftListener.java
         if(playerData.getPlayerClass() != null && event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+=======
+        if(playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
+>>>>>>> origin/master:src/main/java/com/scuffpvp/listeners/ItemInteractionListener.java
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
                 if (event.getMaterial().equals(ability.getItems()[0].getType()) && playerData.checkCoolDown(ability)) {
                     ability.activate();
