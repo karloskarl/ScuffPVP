@@ -1,6 +1,6 @@
 package com.scuffpvp;
 
-import com.scuffpvp.listeners.ItemInteractionListener;
+import com.scuffpvp.listeners.InteractionListener;
 import com.scuffpvp.commands.SelectClassCommand;
 import com.scuffpvp.commands.SelectMapCommand;
 import com.scuffpvp.commands.StartGameCommand;
@@ -31,7 +31,7 @@ public class ScuffPVP extends JavaPlugin {
         getCommand("map").setExecutor(new SelectMapCommand(playerManager));
         getCommand("start").setExecutor(new StartGameCommand(playerManager));
 
-        getServer().getPluginManager().registerEvents(new ItemInteractionListener(playerManager), this);
+        getServer().getPluginManager().registerEvents(new InteractionListener(playerManager), this);
         getServer().getPluginManager().registerEvents(new JoinListener(playerManager), this);
         new TickScheduler(playerManager).runTaskTimer(this, 0L,1L);
 

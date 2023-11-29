@@ -37,7 +37,7 @@ public class Parry extends AOE{
                     Location particleLoc = new Location(center.getWorld(), x, y, z);
                     double distance = particleLoc.distance(center);
 
-                    if (distance >= radius - 0.5 && distance <= radius + 0.5) {
+                    if (distance >= radius - 0.1 && distance <= radius + 0.1) {
                         // Spawn particle at particleLoc
                         particleLoc.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1);
                     }
@@ -51,11 +51,9 @@ public class Parry extends AOE{
         getSoundMix().forEach((k,v) -> getCaster().getWorld().playSound(getCaster().getLocation(),k,v,1));
         spawnActivationParticles();
         long startTime = System.currentTimeMillis();
-        while(System.currentTimeMillis()-startTime < 500) {
-            for (Entity entity : getCaster().getNearbyEntities(getMaxRadius(), getMaxRadius(), getMaxRadius())) {
-                System.out.println("LOOKING");
-                if (Utils.getDistance(getCaster(), entity) <= getMaxRadius() && entity instanceof Projectile projectile && !Objects.equals(projectile.getShooter(), getCaster())) {
-                    System.out.println("Found" + projectile);
+        while(System.currentTimeMillis() - startTime <= 500) {
+            for (Entity entity : getCaster().getNearbyEntities(getMaxRadius() + 0.3, getMaxRadius() + 0.3, getMaxRadius() + 0.3)) {
+                if (entity instanceof Projectile projectile && !projectile.getShooter().equals(getCaster())) {
                     projectile.setShooter(getCaster());
                     projectile.setVelocity(projectile.getVelocity().multiply(-1));
                     projectile.setRotation(projectile.getLocation().getYaw() * -1, projectile.getLocation().getPitch() * -1);

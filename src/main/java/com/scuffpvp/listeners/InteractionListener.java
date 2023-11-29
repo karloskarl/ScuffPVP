@@ -5,21 +5,20 @@ import com.scuffpvp.abilities.MeleeAttack;
 import com.scuffpvp.classes.Bancroft;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 
 
 /**
  * Class that hold the listener for the Bancroft Class
  */
-public class ItemInteractionListener implements Listener{
+public class InteractionListener implements Listener{
     private PlayerManager playerManager;
     private Bancroft playerClass;
 
@@ -27,7 +26,7 @@ public class ItemInteractionListener implements Listener{
      * Creates the listener object.
      * @param playerManager The player manager object.
      */
-    public ItemInteractionListener(PlayerManager playerManager){
+    public InteractionListener(PlayerManager playerManager){
         this.playerManager = playerManager;
     }
 
@@ -56,10 +55,8 @@ public class ItemInteractionListener implements Listener{
             PlayerData playerData = playerManager.getPlayerData(player);
             if(playerData.getPlayerClass() != null) {
                 for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                    if (ability instanceof MeleeAttack attack && player.getInventory().getItemInMainHand().equals(ability.getItems()[0])) {
-                        event.setDamage(0);
-                        attack.setTarget(event.getEntity());
-                        attack.activate();
+                    if (ability instanceof MeleeAttack attack && player.getInventory().getItemInMainHand().getType().equals(ability.getItems()[0].getType())) {
+                        event.setDamage(attack.getDamage());
                     }
                 }
             }
