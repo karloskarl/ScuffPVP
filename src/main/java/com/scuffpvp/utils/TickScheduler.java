@@ -4,7 +4,9 @@ import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Map;
@@ -17,6 +19,7 @@ public class TickScheduler extends BukkitRunnable {
      * The number of game ticks that have occured since plugin load.
      */
     private long gameTimer;
+
     /**
      * The player manager of the plugin.
      */

@@ -16,9 +16,11 @@ public class Sword extends MeleeAttack{
 
     @Override
     public void activate() {
-        for(Player target : getTargets()){
-            target.damage(7,getCaster());
-        }
+    }
+
+    @Override
+    public int getDamage(){
+        return 7;
     }
 
     @Override

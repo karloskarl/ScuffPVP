@@ -6,6 +6,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +20,7 @@ import static org.bukkit.Material.IRON_DOOR;
 public class Parry extends AOE{
 
     public Parry(Player caster){
-        super(caster,3,2500,1);
+        super(caster,2.5,2500,1);
     }
 
     @Override
@@ -39,7 +41,7 @@ public class Parry extends AOE{
 
                     if (distance >= radius - 0.1 && distance <= radius + 0.1) {
                         // Spawn particle at particleLoc
-                        particleLoc.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1);
+                        particleLoc.getWorld().spawnParticle(Particle.SPELL_INSTANT, particleLoc, 1);
                     }
                 }
             }

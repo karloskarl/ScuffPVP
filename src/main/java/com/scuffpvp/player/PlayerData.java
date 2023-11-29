@@ -36,7 +36,6 @@ public class PlayerData {
     /**
      * Checks if a given cooldown timer has reached the cooldown time
      * @param ability ability to cool down
-     * @param cooldown how long (in milliseconds) before the timer should be done
      * @return true or false whether the timer has completed or not
      */
     public boolean checkCoolDown(Ability ability){
@@ -82,6 +81,6 @@ public class PlayerData {
     }
 
     public void onDeath(){
-        cooldowns.forEach((k,v) -> cooldowns.put(k,Long.MIN_VALUE));
+        cooldowns.forEach((k,v) -> cooldowns.put(k,(long)-1));
     }
 }

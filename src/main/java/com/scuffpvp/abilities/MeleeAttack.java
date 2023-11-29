@@ -14,6 +14,8 @@ public abstract class MeleeAttack extends Ability{
         this.target = target;
     }
 
+    public abstract int getDamage();
+
     @Override
     public Player[] getTargets(){
         if(target instanceof Player player){
