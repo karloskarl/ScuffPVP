@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.bukkit.Material.FIRE_CHARGE;
 
-public class Stomp extends AOE{
+public class Stomp extends AreaOfEffectAttack {
     private double radius;
 
     public Stomp(Player caster){

@@ -1,23 +1,17 @@
 package com.scuffpvp.abilities;
 
-import com.scuffpvp.utils.Utils;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
-import static org.bukkit.Material.FIRE_CHARGE;
 import static org.bukkit.Material.IRON_DOOR;
 
-public class Parry extends AOE{
+public class Parry extends AreaOfEffectAttack {
 
     public Parry(Player caster){
         super(caster,2.5,2500,1);

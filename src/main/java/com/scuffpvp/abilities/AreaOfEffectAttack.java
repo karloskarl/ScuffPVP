@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-public abstract class AOE extends Ability{
+public abstract class AreaOfEffectAttack extends Ability{
     private double radius;
     public double getMaxRadius(){
         return radius;
@@ -16,7 +16,7 @@ public abstract class AOE extends Ability{
 
     public abstract void spawnActivationParticles();
 
-    public AOE(Player player,double radius,int cooldown,int priority){
+    public AreaOfEffectAttack(Player player, double radius, int cooldown, int priority){
         super(player,cooldown,priority);
         this.radius = radius;
     }
