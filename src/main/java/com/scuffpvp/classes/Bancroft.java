@@ -14,6 +14,7 @@ import static org.bukkit.Material.*;
 
 public class Bancroft extends Class {
 
+    //TODO: Make these values constants somewhere, or make a .cfg file to easily control values
     public Bancroft(Player player) {
         super(30, "Bancroft", 0.075);
         addAbility(new Stomp(player));

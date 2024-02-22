@@ -42,6 +42,9 @@ public class TickScheduler extends BukkitRunnable {
         gameTimer++;
     }
 
+    /**
+     * Checks the ability cooldowns of all players
+     */
     public void checkCoolDowns(){
         for(Player player : Bukkit.getOnlinePlayers()){
             PlayerData playerData = playerManager.getPlayerData(player);

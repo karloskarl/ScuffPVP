@@ -50,6 +50,12 @@ public class InteractionListener implements Listener{
         }
     }
 
+
+    // TODO: Move this to its own class?
+    /**
+     * Listens for player damage dealing events
+     * @param event The dealt damage event when it occurs
+     */
     @EventHandler
     public void onPlayerDealDamage(EntityDamageByEntityEvent event){
         if(event.getDamager() instanceof Player player){
@@ -64,6 +70,11 @@ public class InteractionListener implements Listener{
         }
     }
 
+    // TODO: Move this to its own class?
+    /**
+     * Listens for player death events
+     * @param event The death event when it occurs
+     */
     @EventHandler
     public void onDeath(PlayerDeathEvent event){
         PlayerData playerData = playerManager.getPlayerData(event.getEntity());
