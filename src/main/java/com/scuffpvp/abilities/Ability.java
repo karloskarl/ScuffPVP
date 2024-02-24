@@ -23,6 +23,13 @@ public abstract class Ability implements Comparable<Ability>{
     private long cooldown;
     private long timeOfUse;
 
+    /**
+     * Creates an ability object
+     * @param caster the caster of the ability
+     * @param cooldown the cooldown length in ticks
+     * @param priority the item slot of the ability
+     * @param playerManager the player manager object
+     */
     public Ability(Player caster, int cooldown, int priority, PlayerManager playerManager){
         this.caster = caster;
         this.cooldown = cooldown;
@@ -33,6 +40,7 @@ public abstract class Ability implements Comparable<Ability>{
      * Activates the ability.
      */
     public void activate() {
+        //sets the item to gunpowder right after activation
         caster.getInventory().setItem(priority,new ItemStack(GUNPOWDER, (int) (cooldown/20)));
     }
 
@@ -49,12 +57,14 @@ public abstract class Ability implements Comparable<Ability>{
         setCooldownItems();
     }
 
+    /**
+     * Sets the necessary amount of cooldown items (gunpowder)
+     */
     public void setCooldownItems(){
         long ticksRemaining = getCooldown() - getTimeOfUse();
-        int secondsRemaining = (int) (ticksRemaining/20);
         if(PlayerManager.isGameRunning()) {
             if (ticksRemaining % 20 == 0 && ticksRemaining > 0) {
-                caster.getInventory().setItem(priority, new ItemStack(GUNPOWDER, secondsRemaining));
+                caster.getInventory().setItem(priority, new ItemStack(GUNPOWDER, (int) (ticksRemaining/20)));
             }
             if (ticksRemaining == 0) {
                 caster.getInventory().setItem(priority, getItems()[0]);
@@ -76,8 +86,16 @@ public abstract class Ability implements Comparable<Ability>{
      */
     public abstract Player[] getTargets();
 
+    /**
+     * Returns the sound mix of the ability
+     * @return
+     */
     public abstract Map<Sound, Float> getSoundMix();
 
+    /**
+     * Returns the items of the ability
+     * @return the items of the ability
+     */
     public abstract ItemStack[] getItems();
 
     public int getPriority(){
