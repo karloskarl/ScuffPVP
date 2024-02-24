@@ -73,13 +73,12 @@ public class SelectClassCommand implements CommandExecutor {
                 }
                 case "help" -> {
                     Utils.sendConfirmationMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show");
-                    return false;
+                    return true;
                 }
                 default -> {
                     Utils.sendErrorMessage(player,"Choose one of the classes!");
                     return false;
                 }
-
             }
             player.sendMessage("Chosen class: " + args[0]);
             return true;
