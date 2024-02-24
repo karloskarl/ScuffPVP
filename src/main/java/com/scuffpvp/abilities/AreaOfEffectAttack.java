@@ -1,5 +1,6 @@
 package com.scuffpvp.abilities;
 
+import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -27,8 +28,8 @@ public abstract class AreaOfEffectAttack extends Ability{
 
     public abstract void spawnActivationParticles();
 
-    public AreaOfEffectAttack(Player player, double radius, int cooldown, int duration, int priority){
-        super(player,cooldown + duration,priority);
+    public AreaOfEffectAttack(Player player, double radius, int cooldown, int duration, int priority, PlayerManager playerManager){
+        super(player,cooldown + duration,priority, playerManager);
         this.radius = radius;
         this.duration = duration;
     }

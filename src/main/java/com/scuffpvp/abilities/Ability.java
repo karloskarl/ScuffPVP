@@ -3,11 +3,14 @@ package com.scuffpvp.abilities;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.Sound;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.bukkit.Material.GUNPOWDER;
 
 
 /**
@@ -15,20 +18,22 @@ import java.util.Map;
  */
 public abstract class Ability implements Comparable<Ability>{
     private Player caster;
+    private PlayerManager playerManager;
     private int priority;
     private long cooldown;
     private long timeOfUse;
 
-    public Ability(Player caster, int cooldown, int priority){
+    public Ability(Player caster, int cooldown, int priority, PlayerManager playerManager){
         this.caster = caster;
         this.cooldown = cooldown;
         this.priority = priority;
+        this.playerManager = playerManager;
     }
     /**
      * Activates the ability.
      */
     public void activate() {
-
+        caster.getInventory().setItem(priority,new ItemStack(GUNPOWDER, (int) (cooldown/20)));
     }
 
     /**
@@ -41,6 +46,18 @@ public abstract class Ability implements Comparable<Ability>{
      */
     public void tick() {
         incrementTimeOfUse();
+        setCooldownItems();
+    }
+
+    public void setCooldownItems(){
+        long ticksRemaining = getCooldown() - getTimeOfUse();
+        int secondsRemaining = (int) (ticksRemaining/20);
+        if (ticksRemaining % 20 == 0 && ticksRemaining > 0) {
+            caster.getInventory().setItem(priority,new ItemStack(GUNPOWDER,secondsRemaining));
+        }
+        if (ticksRemaining == 0) {
+            caster.getInventory().setItem(priority,getItems()[0]);
+        }
     }
 
     /**
@@ -84,5 +101,9 @@ public abstract class Ability implements Comparable<Ability>{
     @Override
     public int compareTo(Ability o) {
         return getPriority() - o.getPriority();
+    }
+
+    public PlayerManager getPlayerManager() {
+        return playerManager;
     }
 }

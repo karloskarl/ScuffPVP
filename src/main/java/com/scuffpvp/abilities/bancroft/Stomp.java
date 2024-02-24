@@ -1,5 +1,7 @@
-package com.scuffpvp.abilities;
+package com.scuffpvp.abilities.bancroft;
 
+import com.scuffpvp.abilities.AreaOfEffectAttack;
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -14,8 +16,13 @@ import static org.bukkit.Material.FIRE_CHARGE;
 public class Stomp extends AreaOfEffectAttack {
     private double radius;
 
-    public Stomp(Player caster){
-        super(caster,3.5,300,0,2);
+    @Override
+    public String toString() {
+        return "Stomp";
+    }
+
+    public Stomp(Player caster, PlayerManager playerManager){
+        super(caster,3.5,300,0,2, playerManager);
     }
 
     @Override

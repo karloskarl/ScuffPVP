@@ -1,13 +1,14 @@
 package com.scuffpvp.abilities;
 
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public abstract class MeleeAttack extends Ability{
     private Entity target;
 
-    public MeleeAttack(Player caster, int priority) {
-        super(caster, 0, priority);
+    public MeleeAttack(Player caster, int priority, PlayerManager playerManager) {
+        super(caster, 0, priority, playerManager);
     }
 
     public void setTarget(Entity target){

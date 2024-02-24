@@ -1,5 +1,7 @@
-package com.scuffpvp.abilities;
+package com.scuffpvp.abilities.bancroft;
 
+import com.scuffpvp.abilities.AreaOfEffectAttack;
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -17,8 +19,8 @@ public class Parry extends AreaOfEffectAttack {
      * Creates the parry object
      * @param caster The caster of the ability
      */
-    public Parry(Player caster){
-        super(caster,2.5,50,10,1);
+    public Parry(Player caster, PlayerManager playerManager){
+        super(caster,2.5,50,10,1, playerManager);
     }
 
     @Override
@@ -87,5 +89,10 @@ public class Parry extends AreaOfEffectAttack {
     @Override
     public ItemStack[] getItems() {
         return new ItemStack[] {new ItemStack(IRON_DOOR)};
+    }
+
+    @Override
+    public String toString(){
+        return "Parry";
     }
 }

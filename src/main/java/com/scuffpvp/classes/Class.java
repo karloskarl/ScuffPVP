@@ -1,6 +1,7 @@
 package com.scuffpvp.classes;
 
 import com.scuffpvp.abilities.Ability;
+import com.scuffpvp.player.PlayerManager;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -29,6 +30,8 @@ public abstract class Class {
      */
     private double speed;
 
+    private PlayerManager playerManager;
+
 
     /**
      * Class constructor
@@ -36,10 +39,11 @@ public abstract class Class {
      * @param name Class name
      * @param speed Movement speed of the class
      */
-    public Class(int health, String name, double speed) {
+    public Class(int health, String name, double speed, PlayerManager playerManager) {
         this.health = health;
         this.name = name;
         abilities = new ArrayList<>();
+        this.playerManager = playerManager;
     }
 
     /**
