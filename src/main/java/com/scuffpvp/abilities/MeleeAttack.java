@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 public abstract class MeleeAttack extends Ability{
     private Entity target;
 
-    public MeleeAttack(Player caster, int priority, PlayerManager playerManager) {
-        super(caster, 0, priority, playerManager);
+    public MeleeAttack(Player caster,int cooldown, int priority, PlayerManager playerManager) {
+        super(caster, cooldown, priority, playerManager);
     }
 
     public void setTarget(Entity target){
@@ -16,6 +16,13 @@ public abstract class MeleeAttack extends Ability{
     }
 
     public abstract int getDamage();
+
+
+
+    public void activate(EntityDamageByEntityEvent event) {
+        super.activate();
+        event.setDamage(getDamage());
+    }
 
     @Override
     public Player[] getTargets(){

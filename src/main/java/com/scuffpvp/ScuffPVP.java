@@ -7,13 +7,22 @@ import com.scuffpvp.commands.StartGameCommand;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.TickScheduler;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 /**
  * Main plugin class
  */
 public class ScuffPVP extends JavaPlugin {
+    public static final Location SPAWN_AREA = new Location(Bukkit.getWorld("ScuffPVP"),30,-60,-14);
+    public static final Location CLASS_SELECT = new Location(Bukkit.getWorld("ScuffPVP"),30,-60,-24);
+    public static final Location CAGE_MATCH = new Location(Bukkit.getWorld("ScuffPVP"),20,-60,-24);
+
+
     /**
      * The playerManager instance controlling the server.
      */
@@ -40,6 +49,9 @@ public class ScuffPVP extends JavaPlugin {
 
         for(Player player : Bukkit.getOnlinePlayers()){
             playerManager.assignPlayer(player);
+            player.teleport(SPAWN_AREA);
+            player.setGameMode(GameMode.ADVENTURE);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
         }
     }
 

@@ -32,6 +32,8 @@ public abstract class Class {
 
     private PlayerManager playerManager;
 
+    private ItemStack[] armor;
+
 
     /**
      * Class constructor
@@ -44,6 +46,7 @@ public abstract class Class {
         this.name = name;
         abilities = new ArrayList<>();
         this.playerManager = playerManager;
+        armor = new ItemStack[4];
     }
 
     /**

@@ -34,13 +34,19 @@ public class StartGameCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
-            playerManager.setItems();
-            playerManager.setGameRunning(true);
-            for(Player player : Bukkit.getOnlinePlayers()) {
-                PlayerData playerData = playerManager.getPlayerData(player);
-                for (Ability ability : playerData.getPlayerClass().getAbilities()){
-                    ability.setTimeOfUse(ability.getCooldown());
+            if(!PlayerManager.isGameRunning()) {
+                playerManager.setItems();
+                playerManager.setGameRunning(true);
+                Utils.broadcastConfirmationMessage("Game started!");
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    PlayerData playerData = playerManager.getPlayerData(player);
+                    for (Ability ability : playerData.getPlayerClass().getAbilities()) {
+                        ability.setTimeOfUse(ability.getCooldown());
+                    }
                 }
+            } else {
+                Utils.sendErrorMessage((Player) sender, "Game already started!");
+                return false;
             }
         } catch (Exception E){
             Utils.broadcastErrorMessage("stupid idot, not all prlayer s have class (or some other error idk)");

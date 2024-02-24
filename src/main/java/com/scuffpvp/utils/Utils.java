@@ -38,6 +38,13 @@ public class Utils {
         player.sendMessage(formattedMessage);
     }
 
+    public static void broadcastConfirmationMessage(String message) {
+        String formattedMessage = ChatColor.GREEN + "" + ChatColor.BOLD + message;
+        for(Player player : Bukkit.getServer().getOnlinePlayers()){
+            player.sendMessage(formattedMessage);
+        }
+    }
+
     /**
      * Gets the distance between two entities
      * @param p1 The first entity

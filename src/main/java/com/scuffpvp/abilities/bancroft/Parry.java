@@ -7,6 +7,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +57,7 @@ public class Parry extends AreaOfEffectAttack {
             setTimeOfUse(0);
             getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
             spawnActivationParticles();
+            getCaster().addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, (int) getDuration(), 100,true));
         }
     }
 
