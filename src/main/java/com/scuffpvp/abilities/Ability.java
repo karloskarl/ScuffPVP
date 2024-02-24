@@ -1,5 +1,7 @@
 package com.scuffpvp.abilities;
 
+import com.scuffpvp.player.PlayerManager;
+import com.scuffpvp.utils.Utils;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -25,7 +27,11 @@ public abstract class Ability implements Comparable<Ability>{
     /**
      * Activates the ability.
      */
-    public abstract void activate();
+    public void activate() {
+        if(!PlayerManager.isGameRunning()) {
+            return;
+        }
+    }
 
     /**
      * Cleans up the ability once done.

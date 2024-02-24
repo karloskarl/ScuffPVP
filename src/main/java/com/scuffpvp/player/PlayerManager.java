@@ -20,12 +20,14 @@ public class PlayerManager {
      * Maps each player to a PlayerData object
      */
     private Map<Player, PlayerData> playerMap;
+    private static boolean gameRunning;
 
     /**
      * Initializes the HashMap that pairs a player with a PlayerData object
      */
     public PlayerManager(){
         playerMap = new HashMap<>();
+        gameRunning = false;
     }
 
     /**
@@ -52,5 +54,13 @@ public class PlayerManager {
      */
     public PlayerData getPlayerData(Player player){
         return playerMap.get(player);
+    }
+
+    public static boolean isGameRunning() {
+        return gameRunning;
+    }
+
+    public void setGameRunning(boolean gameRunning) {
+        this.gameRunning = gameRunning;
     }
 }

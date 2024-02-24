@@ -30,7 +30,9 @@ public class Stomp extends AreaOfEffectAttack {
 
     @Override
     public void activate() {
-        if(getTimeOfUse() < getCooldown()) {
+        super.activate();
+        if(getTimeOfUse() > getCooldown()) {
+            setTimeOfUse(0);
             getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
             spawnActivationParticles();
             for (Player target : getTargets()) {

@@ -13,12 +13,22 @@ public abstract class AreaOfEffectAttack extends Ability{
         return radius;
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+    }
+
+    @Override
+    public void activate() {
+        super.activate();
+    }
+
     public abstract int getDamage(double radius);
 
     public abstract void spawnActivationParticles();
 
     public AreaOfEffectAttack(Player player, double radius, int cooldown, int duration, int priority){
-        super(player,cooldown,priority);
+        super(player,cooldown + duration,priority);
         this.radius = radius;
         this.duration = duration;
     }

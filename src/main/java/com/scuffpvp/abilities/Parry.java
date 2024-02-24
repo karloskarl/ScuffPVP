@@ -48,7 +48,8 @@ public class Parry extends AreaOfEffectAttack {
 
     @Override
     public void activate() {
-        if(getTimeOfUse() < getCooldown() + getDuration()) {
+        super.activate();
+        if(getTimeOfUse() > getCooldown()) {
             setTimeOfUse(0);
             getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
             spawnActivationParticles();
@@ -63,6 +64,7 @@ public class Parry extends AreaOfEffectAttack {
     public void tick() {
         super.tick();
         if(getTimeOfUse() < getDuration()){
+            //TODO: Rewrite into seperate method that takes into account particle-based projectiles
             for (Entity entity : getCaster().getNearbyEntities(getMaxRadius() + 0.3, getMaxRadius() + 0.3, getMaxRadius() + 0.3)) {
                 if (entity instanceof Projectile projectile && !projectile.getShooter().equals(getCaster())) {
                     projectile.setShooter(getCaster());
