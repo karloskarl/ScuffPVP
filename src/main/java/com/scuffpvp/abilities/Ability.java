@@ -52,11 +52,13 @@ public abstract class Ability implements Comparable<Ability>{
     public void setCooldownItems(){
         long ticksRemaining = getCooldown() - getTimeOfUse();
         int secondsRemaining = (int) (ticksRemaining/20);
-        if (ticksRemaining % 20 == 0 && ticksRemaining > 0) {
-            caster.getInventory().setItem(priority,new ItemStack(GUNPOWDER,secondsRemaining));
-        }
-        if (ticksRemaining == 0) {
-            caster.getInventory().setItem(priority,getItems()[0]);
+        if(PlayerManager.isGameRunning()) {
+            if (ticksRemaining % 20 == 0 && ticksRemaining > 0) {
+                caster.getInventory().setItem(priority, new ItemStack(GUNPOWDER, secondsRemaining));
+            }
+            if (ticksRemaining == 0) {
+                caster.getInventory().setItem(priority, getItems()[0]);
+            }
         }
     }
 
