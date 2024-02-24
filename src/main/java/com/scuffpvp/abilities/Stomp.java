@@ -15,7 +15,7 @@ public class Stomp extends AreaOfEffectAttack {
     private double radius;
 
     public Stomp(Player caster){
-        super(caster,3.5,15000,2);
+        super(caster,3.5,300,0,2);
     }
 
     @Override
@@ -30,17 +30,24 @@ public class Stomp extends AreaOfEffectAttack {
 
     @Override
     public void activate() {
-        getSoundMix().forEach((k,v) -> getCaster().getWorld().playSound(getCaster().getLocation(),k,v,1));
-        spawnActivationParticles();
-        for(Player target: getTargets()){
-            if(target != getCaster()) {
-                target.damage(getDamage(0), getCaster());
+        if(getTimeOfUse() < getCooldown()) {
+            getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
+            spawnActivationParticles();
+            for (Player target : getTargets()) {
+                if (target != getCaster()) {
+                    target.damage(getDamage(0), getCaster());
+                }
             }
         }
     }
 
     @Override
     public void cleanup() {
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
     }
 
     @Override

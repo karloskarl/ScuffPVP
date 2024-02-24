@@ -42,42 +42,10 @@ public class InteractionListener implements Listener{
         PlayerData playerData = playerManager.getPlayerData(player);
         if(playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                if (event.getMaterial().equals(ability.getItems()[0].getType()) && playerData.checkCoolDown(ability)) {
+                if (event.getMaterial().equals(ability.getItems()[0].getType())) {
                     ability.activate();
-                    playerData.setCoolDown(ability);
                 }
             }
         }
-    }
-
-
-    // TODO: Move this to its own class?
-    /**
-     * Listens for player damage dealing events
-     * @param event The dealt damage event when it occurs
-     */
-    @EventHandler
-    public void onPlayerDealDamage(EntityDamageByEntityEvent event){
-        if(event.getDamager() instanceof Player player){
-            PlayerData playerData = playerManager.getPlayerData(player);
-            if(playerData.getPlayerClass() != null) {
-                for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                    if (ability instanceof MeleeAttack attack && player.getInventory().getItemInMainHand().getType().equals(ability.getItems()[0].getType())) {
-                        event.setDamage(attack.getDamage());
-                    }
-                }
-            }
-        }
-    }
-
-    // TODO: Move this to its own class?
-    /**
-     * Listens for player death events
-     * @param event The death event when it occurs
-     */
-    @EventHandler
-    public void onDeath(PlayerDeathEvent event){
-        PlayerData playerData = playerManager.getPlayerData(event.getEntity());
-        playerData.onDeath();
     }
 }

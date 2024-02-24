@@ -71,3 +71,13 @@
 - Suzuka : 4
 - Esteille : 5
 - Glass : 6
+
+## Roadmap
+- v0.1
+  - Fully working game with a single map (abandoned castle) and Bancroft.
+- v0.2
+  - Add Hansa and Mirabelle
+  - Add second map (chateau)
+- v0.3
+  - Add Suzuka, Esteille, Glass
+  - Port to paper from spigot

@@ -1,6 +1,7 @@
 package com.scuffpvp.utils;
 
 import com.scuffpvp.abilities.Ability;
+import com.scuffpvp.classes.Class;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import org.bukkit.Bukkit;
@@ -16,11 +17,6 @@ import java.util.Map;
  */
 public class TickScheduler extends BukkitRunnable {
     /**
-     * The number of game ticks that have occured since plugin load.
-     */
-    private long gameTimer;
-
-    /**
      * The player manager of the plugin.
      */
     private PlayerManager playerManager;
@@ -30,7 +26,6 @@ public class TickScheduler extends BukkitRunnable {
      */
     public TickScheduler(PlayerManager playerManager){
         this.playerManager = playerManager;
-        gameTimer = 0L;
     }
 
     /**
@@ -38,20 +33,10 @@ public class TickScheduler extends BukkitRunnable {
      */
     @Override
     public void run() {
-
-        gameTimer++;
-    }
-
-    /**
-     * Checks the ability cooldowns of all players
-     */
-    public void checkCoolDowns(){
         for(Player player : Bukkit.getOnlinePlayers()){
-            PlayerData playerData = playerManager.getPlayerData(player);
-            Map<Ability,Long> cooldowns = playerData.getAllCoolDowns();
-            for(Ability ability : cooldowns.keySet()){
-                if(playerManager.getPlayerData(player).checkCoolDown(ability)){
-
+            if(playerManager.getPlayerData(player).getPlayerClass() != null) {
+                for (Ability ability : playerManager.getPlayerData(player).getPlayerClass().getAbilities()) {
+                    ability.tick();
                 }
             }
         }

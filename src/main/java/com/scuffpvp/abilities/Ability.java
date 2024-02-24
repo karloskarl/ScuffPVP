@@ -4,6 +4,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -13,7 +14,8 @@ import java.util.Map;
 public abstract class Ability implements Comparable<Ability>{
     private Player caster;
     private int priority;
-    private int cooldown;
+    private long cooldown;
+    private long timeOfUse;
 
     public Ability(Player caster, int cooldown, int priority){
         this.caster = caster;
@@ -29,6 +31,13 @@ public abstract class Ability implements Comparable<Ability>{
      * Cleans up the ability once done.
      */
     public abstract void cleanup();
+
+    /**
+     * Operates every tick
+     */
+    public void tick() {
+        incrementTimeOfUse();
+    }
 
     /**
      * Gets the caster of the ability
@@ -52,8 +61,20 @@ public abstract class Ability implements Comparable<Ability>{
         return priority;
     }
 
-    public int getCooldown(){
+    public long getCooldown(){
         return cooldown;
+    }
+
+    public long getTimeOfUse(){
+        return timeOfUse;
+    }
+
+    public void setTimeOfUse(long timeOfUse){
+        this.timeOfUse = timeOfUse;
+    }
+
+    public void incrementTimeOfUse(){
+        timeOfUse++;
     }
 
     @Override

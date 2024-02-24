@@ -13,8 +13,12 @@ import static org.bukkit.Material.IRON_DOOR;
 
 public class Parry extends AreaOfEffectAttack {
 
+    /**
+     * Creates the parry object
+     * @param caster The caster of the ability
+     */
     public Parry(Player caster){
-        super(caster,2.5,2500,1);
+        super(caster,2.5,50,10,1);
     }
 
     @Override
@@ -44,10 +48,21 @@ public class Parry extends AreaOfEffectAttack {
 
     @Override
     public void activate() {
-        getSoundMix().forEach((k,v) -> getCaster().getWorld().playSound(getCaster().getLocation(),k,v,1));
-        spawnActivationParticles();
-        long startTime = System.currentTimeMillis();
-        while(System.currentTimeMillis() - startTime <= 500) {
+        if(getTimeOfUse() < getCooldown() + getDuration()) {
+            setTimeOfUse(0);
+            getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
+            spawnActivationParticles();
+        }
+    }
+
+    @Override
+    public void cleanup() {
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(getTimeOfUse() < getDuration()){
             for (Entity entity : getCaster().getNearbyEntities(getMaxRadius() + 0.3, getMaxRadius() + 0.3, getMaxRadius() + 0.3)) {
                 if (entity instanceof Projectile projectile && !projectile.getShooter().equals(getCaster())) {
                     projectile.setShooter(getCaster());
@@ -56,10 +71,6 @@ public class Parry extends AreaOfEffectAttack {
                 }
             }
         }
-    }
-
-    @Override
-    public void cleanup() {
     }
 
     @Override

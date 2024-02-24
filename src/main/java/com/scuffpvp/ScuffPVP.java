@@ -5,6 +5,8 @@ import com.scuffpvp.commands.SelectClassCommand;
 import com.scuffpvp.commands.SelectMapCommand;
 import com.scuffpvp.commands.StartGameCommand;
 import com.scuffpvp.listeners.JoinListener;
+import com.scuffpvp.listeners.PlayerDamageListener;
+import com.scuffpvp.listeners.PlayerDeathListener;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.TickScheduler;
 import org.bukkit.Bukkit;
@@ -33,6 +35,9 @@ public class ScuffPVP extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new InteractionListener(playerManager), this);
         getServer().getPluginManager().registerEvents(new JoinListener(playerManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerDamageListener(playerManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(playerManager), this);
+
         new TickScheduler(playerManager).runTaskTimer(this, 0L,1L);
 
         for(Player player : Bukkit.getOnlinePlayers()){

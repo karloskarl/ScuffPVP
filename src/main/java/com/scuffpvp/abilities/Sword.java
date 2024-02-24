@@ -28,6 +28,11 @@ public class Sword extends MeleeAttack{
     }
 
     @Override
+    public void tick() {
+
+    }
+
+    @Override
     public Map<Sound, Float> getSoundMix() {
         return null;
     }

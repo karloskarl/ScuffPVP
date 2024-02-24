@@ -79,7 +79,7 @@ public abstract class Class {
      * @param ability The ability whose cooldown is checked
      * @return The cooldown of the specified ability
      */
-    public Integer getCoolDown(Ability ability){
+    public Long getCoolDown(Ability ability){
         return ability.getCooldown();
     }
 

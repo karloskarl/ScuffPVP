@@ -36,6 +36,10 @@ public class SelectClassCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player player) {
+            if(args.length == 0) {
+                Utils.sendErrorMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show");
+                return false;
+            }
             switch (args[0].toLowerCase()) {
                 case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft(player));
                 case "list" -> {
@@ -66,6 +70,10 @@ public class SelectClassCommand implements CommandExecutor {
                         Utils.sendErrorMessage(player, "Cannot show class that doesn't exist!");
                         return false;
                     }
+                }
+                case "help" -> {
+                    Utils.sendConfirmationMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show");
+                    return false;
                 }
                 default -> {
                     Utils.sendErrorMessage(player,"Choose one of the classes!");

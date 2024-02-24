@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public abstract class AreaOfEffectAttack extends Ability{
     private double radius;
+    private long duration;
     public double getMaxRadius(){
         return radius;
     }
@@ -16,9 +17,10 @@ public abstract class AreaOfEffectAttack extends Ability{
 
     public abstract void spawnActivationParticles();
 
-    public AreaOfEffectAttack(Player player, double radius, int cooldown, int priority){
+    public AreaOfEffectAttack(Player player, double radius, int cooldown, int duration, int priority){
         super(player,cooldown,priority);
         this.radius = radius;
+        this.duration = duration;
     }
 
     @Override
@@ -32,5 +34,7 @@ public abstract class AreaOfEffectAttack extends Ability{
         return targets.toArray(new Player[0]);
     }
 
-
+    public long getDuration() {
+        return duration;
+    }
 }

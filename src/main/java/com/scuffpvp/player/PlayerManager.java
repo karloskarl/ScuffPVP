@@ -1,6 +1,7 @@
 package com.scuffpvp.player;
 
 import com.scuffpvp.ScuffPVP;
+import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.player.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
