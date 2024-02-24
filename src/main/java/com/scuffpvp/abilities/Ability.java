@@ -28,9 +28,7 @@ public abstract class Ability implements Comparable<Ability>{
      * Activates the ability.
      */
     public void activate() {
-        if(!PlayerManager.isGameRunning()) {
-            return;
-        }
+
     }
 
     /**
