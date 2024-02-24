@@ -34,7 +34,7 @@ public class TickScheduler extends BukkitRunnable {
     @Override
     public void run() {
         for(Player player : Bukkit.getOnlinePlayers()){
-            if(playerManager.getPlayerData(player).getPlayerClass() != null) {
+            if(PlayerManager.isGameRunning() && playerManager.getPlayerData(player).getPlayerClass() != null) {
                 for (Ability ability : playerManager.getPlayerData(player).getPlayerClass().getAbilities()) {
                     ability.tick();
                 }

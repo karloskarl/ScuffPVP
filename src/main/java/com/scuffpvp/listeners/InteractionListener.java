@@ -40,9 +40,9 @@ public class InteractionListener implements Listener{
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         PlayerData playerData = playerManager.getPlayerData(player);
-        if(playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
+        if(PlayerManager.isGameRunning() && playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                if (PlayerManager.isGameRunning() && event.getMaterial().equals(ability.getItems()[0].getType())) {
+                if (event.getMaterial().equals(ability.getItems()[0].getType())) {
                     ability.activate();
                 }
             }
