@@ -23,7 +23,11 @@ public class Sword extends MeleeAttack {
     }
 
     @Override
-    public void activate() {
+    public void activate(EntityDamageByEntityEvent event) {
+        if(getTimeOfUse() > getCooldown()) {
+            super.activate();
+            setTimeOfUse(0);
+        }
     }
 
     @Override
@@ -37,7 +41,7 @@ public class Sword extends MeleeAttack {
 
     @Override
     public void tick() {
-
+        super.tick();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.scuffpvp.commands;
 
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.classes.*;
+import com.scuffpvp.utils.MapController;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,14 +16,16 @@ public class SelectClassCommand implements CommandExecutor {
     /**
      * The player manager object.
      */
-    private final PlayerManager playerManager;
+    private PlayerManager playerManager;
+    private MapController mapController;
 
     /**
      * Creates the controller object.
      * @param playerManager The player manager instance to be used.
      */
-    public SelectClassCommand(PlayerManager playerManager) {
+    public SelectClassCommand(PlayerManager playerManager, MapController mapController) {
         this.playerManager = playerManager;
+        this.mapController = mapController;
     }
 
     /**
@@ -31,14 +34,14 @@ public class SelectClassCommand implements CommandExecutor {
      * @param command Command which was executed
      * @param label Alias of the command which was used
      * @param args Passed command arguments
-     * @return Whether the command was run successfully.
+     * @return value not used
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender instanceof Player player) {
+        if(mapController.isSelectionRunning() && sender instanceof Player player) {
             if(args.length == 0) {
-                Utils.sendErrorMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show");
-                return false;
+                Utils.sendErrorMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show, <class name>");
+                return true;
             }
             switch (args[0].toLowerCase()) {
                 case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft(player, playerManager));
@@ -56,20 +59,18 @@ public class SelectClassCommand implements CommandExecutor {
                     if(playerManager.getPlayerData(player).getPlayerClass() != null) {
                         playerManager.getPlayerData(player).clearClass();
                         Utils.sendConfirmationMessage(player,"Removed class.");
-                        return true;
                     } else {
                         Utils.sendErrorMessage(player, "Cannot remove class that doesn't exist!");
-                        return false;
                     }
+                    return true;
                 }
                 case "show" -> {
                     if(playerManager.getPlayerData(player).getPlayerClass() != null) {
                         Utils.sendConfirmationMessage(player, playerManager.getPlayerData(player).getPlayerClass().getName());
-                        return true;
                     } else {
                         Utils.sendErrorMessage(player, "Cannot show class that doesn't exist!");
-                        return false;
                     }
+                    return true;
                 }
                 case "help" -> {
                     Utils.sendConfirmationMessage(player,"Command usage: /class <argument>\nPossible arguments: list, remove, show");
@@ -77,12 +78,13 @@ public class SelectClassCommand implements CommandExecutor {
                 }
                 default -> {
                     Utils.sendErrorMessage(player,"Choose one of the classes!");
-                    return false;
+                    return true;
                 }
             }
-            player.sendMessage("Chosen class: " + args[0]);
-            return true;
+            Utils.broadcastConfirmationMessage(player.getName() + " has chosen the class " + args[0]);
+        } else {
+            Utils.sendErrorMessage((Player) sender, "Class selection is not active!");
         }
-        return false;
+        return true;
     }
 }

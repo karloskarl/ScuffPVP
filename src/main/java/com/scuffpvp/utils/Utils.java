@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
 
 /**
  * The Util class contains various miscellaneous utilities used by other parts of the program.
@@ -55,5 +56,15 @@ public class Utils {
         Location p1pos = p1.getLocation();
         Location p2pos = p2.getLocation();
         return Math.sqrt(Math.pow(p1pos.getX() - p2pos.getX(),2)+Math.pow(p1pos.getY() - p2pos.getY(),2)+Math.pow(p1pos.getZ() - p2pos.getZ(),2));
+    }
+
+    /**
+     * Clears the potion effects of the selected player
+     * @param player The selected player
+     */
+    public static void clearPotionEffects(Player player){
+        for(PotionEffect effect:player.getActivePotionEffects()){
+            player.removePotionEffect(effect.getType());
+        }
     }
 }

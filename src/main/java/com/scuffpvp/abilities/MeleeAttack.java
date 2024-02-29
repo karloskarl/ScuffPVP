@@ -3,6 +3,7 @@ package com.scuffpvp.abilities;
 import com.scuffpvp.player.PlayerManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public abstract class MeleeAttack extends Ability{
     private Entity target;

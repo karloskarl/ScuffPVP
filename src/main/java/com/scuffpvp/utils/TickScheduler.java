@@ -20,12 +20,14 @@ public class TickScheduler extends BukkitRunnable {
      * The player manager of the plugin.
      */
     private PlayerManager playerManager;
+    private MapController mapController;
 
     /**
      * Constructor with playermanager instance being passed in.
      */
-    public TickScheduler(PlayerManager playerManager){
+    public TickScheduler(PlayerManager playerManager, MapController mapController){
         this.playerManager = playerManager;
+        this.mapController = mapController;
     }
 
     /**
@@ -39,6 +41,9 @@ public class TickScheduler extends BukkitRunnable {
                     ability.tick();
                 }
             }
+        }
+        if(mapController.isSelectionRunning()){
+            mapController.tick();
         }
     }
 }

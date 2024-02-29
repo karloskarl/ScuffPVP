@@ -27,7 +27,7 @@ public class PlayerDamageListener implements Listener {
             if(playerData.getPlayerClass() != null) {
                 for (Ability ability : playerData.getPlayerClass().getAbilities()) {
                     if (ability instanceof MeleeAttack attack && player.getInventory().getItemInMainHand().getType().equals(ability.getItems()[0].getType())) {
-                        event.setDamage(attack.getDamage());
+                        attack.activate(event);
                     }
                 }
             }

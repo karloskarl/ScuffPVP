@@ -1,10 +1,13 @@
 package com.scuffpvp.commands;
 
+import com.scuffpvp.ScuffPVP;
 import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
+import com.scuffpvp.utils.MapController;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,13 +17,15 @@ import org.bukkit.entity.Player;
  * Class to control the /start command
  */
 public class StartGameCommand implements CommandExecutor {
-    private final PlayerManager playerManager;
+    private PlayerManager playerManager;
+    private MapController mapController;
 
     /**
      * Creates the command object.
      */
-    public StartGameCommand(PlayerManager playerManager) {
+    public StartGameCommand(PlayerManager playerManager, MapController mapController) {
         this.playerManager = playerManager;
+        this.mapController = mapController;
     }
 
     /**
@@ -29,27 +34,34 @@ public class StartGameCommand implements CommandExecutor {
      * @param command Command which was executed
      * @param label Alias of the command which was used
      * @param args Passed command arguments
-     * @return Whether the command was succesfully used.
+     * @return value not used
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if(!PlayerManager.isGameRunning()) {
-                playerManager.setItems();
+                if(mapController.isSelectionRunning() )
                 playerManager.setGameRunning(true);
                 Utils.broadcastConfirmationMessage("Game started!");
+                Location mapLocation = MapController.getSelectedMapLocation();
+                if(mapLocation == null) {
+                    Utils.sendErrorMessage((Player) sender,"Map not selected!");
+                    return true;
+                }
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     PlayerData playerData = playerManager.getPlayerData(player);
                     for (Ability ability : playerData.getPlayerClass().getAbilities()) {
                         ability.setTimeOfUse(ability.getCooldown());
                     }
+                    Utils.clearPotionEffects(player);
                 }
+                playerManager.setItems();
             } else {
                 Utils.sendErrorMessage((Player) sender, "Game already started!");
-                return false;
+                return true;
             }
         } catch (Exception E){
-            Utils.broadcastErrorMessage("stupid idot, not all prlayer s have class (or some other error idk)");
+            Utils.sendErrorMessage((Player) sender,"stupid idot, not all prlayer s have class (or some other error idk)");
         }
         return true;
     }

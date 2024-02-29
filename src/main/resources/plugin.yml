@@ -7,14 +7,18 @@ commands:
     description: Chooses a class for the nearest player
     usage: /class className
     permission: scuffpvp.player
-  map:
-    description: Chooses a map to play on
-    usage: /map mapName
-    permission: scuffpvp.player
   start:
     description: Starts a game
     usage: /start
+    permission: scuffpvp.admin
+  vote:
+    description: Votes for a map
+    usage: /vote map
     permission: scuffpvp.player
+  startSelection:
+    description: Starts a map vote
+    usage: /startSelection
+    permission: scuffpvp.admin
 permissions:
   scuffpvp.player:
     description: Default player permission

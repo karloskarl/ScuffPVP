@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Class {
+    //TODO: Add a potion ability field along with all other infrastructure to support it
     /**
      * Maximum health value
      */
@@ -104,6 +105,9 @@ public abstract class Class {
                 slot++;
             }
         }
+        for(int i = 0; i < armor.length; i++){
+            items.put(i + 36,armor[i]);
+        }
         return items;
     }
 
@@ -113,5 +117,11 @@ public abstract class Class {
      */
     public void addAbility(Ability ability){
         abilities.add(ability);
+    }
+
+    public void addArmor(ItemStack armor,int slot){
+        if(slot >= 0 && slot < this.armor.length) {
+            this.armor[slot] = armor;
+        }
     }
 }

@@ -42,7 +42,7 @@ public class InteractionListener implements Listener{
         PlayerData playerData = playerManager.getPlayerData(player);
         if(PlayerManager.isGameRunning() && playerData.getPlayerClass() != null && event.getAction().name().contains("RIGHT")) {
             for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                if (event.getMaterial().equals(ability.getItems()[0].getType())) {
+                if (!(ability instanceof MeleeAttack) && event.getMaterial().equals(ability.getItems()[0].getType())) {
                     ability.activate();
                 }
             }

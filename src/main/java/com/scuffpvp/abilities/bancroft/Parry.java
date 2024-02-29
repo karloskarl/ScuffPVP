@@ -52,8 +52,8 @@ public class Parry extends AreaOfEffectAttack {
 
     @Override
     public void activate() {
-        super.activate();
         if(getTimeOfUse() > getCooldown()) {
+            super.activate();
             setTimeOfUse(0);
             getSoundMix().forEach((k, v) -> getCaster().getWorld().playSound(getCaster().getLocation(), k, v, 1));
             spawnActivationParticles();
