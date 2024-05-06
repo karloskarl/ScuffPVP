@@ -8,6 +8,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
+import java.util.Random;
+
 /**
  * The Util class contains various miscellaneous utilities used by other parts of the program.
  */
@@ -66,5 +68,15 @@ public class Utils {
         for(PotionEffect effect:player.getActivePotionEffects()){
             player.removePotionEffect(effect.getType());
         }
+    }
+
+    /**
+     * Selects a random number between a and b
+     * @param a the lower bound, inclusive
+     * @param b the upper bound, inclusive
+     */
+    public static int getRandom(int a, int b){
+        Random r = new Random();
+        return r.nextInt(a,b);
     }
 }

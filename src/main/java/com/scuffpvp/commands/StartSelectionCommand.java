@@ -17,7 +17,10 @@ public class StartSelectionCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(mapController.isSelectionRunning()) {
+        if(!MapController.getSelectedMap().isBlank()){
+            Utils.sendErrorMessage((Player) commandSender,"The map has already been selected! YOU STUPID STUPID FUCKING FUCKASS PIECE OF FUCKING SHIT");
+        }
+        else if(!mapController.isSelectionRunning()) {
             mapController.startVote();
             Utils.broadcastConfirmationMessage("Map vote started! Use /vote list to see the options and /vote <vote> to submit a vote.");
         } else {

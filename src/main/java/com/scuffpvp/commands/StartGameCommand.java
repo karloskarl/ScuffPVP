@@ -2,6 +2,7 @@ package com.scuffpvp.commands;
 
 import com.scuffpvp.ScuffPVP;
 import com.scuffpvp.abilities.Ability;
+import com.scuffpvp.classes.Class;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.MapController;
@@ -38,31 +39,35 @@ public class StartGameCommand implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        try {
-            if(!PlayerManager.isGameRunning()) {
-                if(mapController.isSelectionRunning() )
-                playerManager.setGameRunning(true);
-                Utils.broadcastConfirmationMessage("Game started!");
-                Location mapLocation = MapController.getSelectedMapLocation();
-                if(mapLocation == null) {
-                    Utils.sendErrorMessage((Player) sender,"Map not selected!");
-                    return true;
-                }
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    PlayerData playerData = playerManager.getPlayerData(player);
-                    for (Ability ability : playerData.getPlayerClass().getAbilities()) {
-                        ability.setTimeOfUse(ability.getCooldown());
-                    }
-                    Utils.clearPotionEffects(player);
-                }
-                playerManager.setItems();
-            } else {
-                Utils.sendErrorMessage((Player) sender, "Game already started!");
-                return true;
-            }
-        } catch (Exception E){
-            Utils.sendErrorMessage((Player) sender,"stupid idot, not all prlayer s have class (or some other error idk)");
+        if(PlayerManager.isGameRunning()) {
+            Utils.sendErrorMessage((Player) sender, "Game already started!");
+            return true;
         }
+        if(!mapController.isSelectionRunning() ) {
+            Utils.sendErrorMessage((Player) sender, "Map selection isn't running!");
+            return true;
+        }
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            PlayerData playerData = playerManager.getPlayerData(player);
+            Class playerClass = playerData.getPlayerClass();
+            if(playerClass == null) {
+                Utils.sendErrorMessage((Player) sender,"Someone hasn't chosen a class!");
+                return true;
+            } else {
+                for (Ability ability : playerClass.getAbilities()) {
+                    ability.setTimeOfUse(ability.getCooldown());
+                }
+                Utils.clearPotionEffects(player);
+            }
+        }
+        Location mapLocation = MapController.getSelectedMapLocation();
+        if(mapLocation == null) {
+            mapController.terminateVotingProcess();
+            return true;
+        }
+        playerManager.setGameRunning(true);
+        Utils.broadcastConfirmationMessage("Game started!");
+        playerManager.setItems();
         return true;
     }
 }

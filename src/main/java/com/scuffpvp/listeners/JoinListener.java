@@ -34,6 +34,7 @@ public class JoinListener implements Listener {
         Player player = event.getPlayer();
         playerManager.assignPlayer(player);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
         if(PlayerManager.isGameRunning()) {
             player.setGameMode(GameMode.SPECTATOR);
         } else {

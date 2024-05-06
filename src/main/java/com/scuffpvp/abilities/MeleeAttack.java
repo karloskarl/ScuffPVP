@@ -22,7 +22,6 @@ public abstract class MeleeAttack extends Ability{
 
     public void activate(EntityDamageByEntityEvent event) {
         super.activate();
-        event.setDamage(getDamage());
     }
 
     @Override

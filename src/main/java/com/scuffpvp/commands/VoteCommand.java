@@ -29,7 +29,7 @@ public class VoteCommand implements CommandExecutor {
             mapName = mapName.substring(0,mapName.length()-1);
             try {
                 selectedMap = Integer.valueOf(mapName) - 1;
-                if(selectedMap < 1 || selectedMap > MapController.MAPS.length) {
+                if(selectedMap < 0 || selectedMap > MapController.MAPS.length) {
                     Utils.sendErrorMessage(player, "Selected index not an option. Range: [1-" + MapController.MAPS.length + "]\n");
                     return true;
                 }
@@ -57,9 +57,9 @@ public class VoteCommand implements CommandExecutor {
             }
             mapController.addVote(player, selectedMap);
             if(mapController.hasPlayerVoted(player)) {
-                Utils.broadcastConfirmationMessage(player + " changed their vote to " + MapController.MAPS[selectedMap]);
+                Utils.broadcastConfirmationMessage(player.getName() + " changed their vote to " + MapController.MAPS[selectedMap]);
             } else {
-                Utils.broadcastConfirmationMessage(player + " voted for " + MapController.MAPS[selectedMap]);
+                Utils.broadcastConfirmationMessage(player.getName() + " voted for " + MapController.MAPS[selectedMap]);
             }
         } else {
             Utils.sendErrorMessage((Player) commandSender, "Map selection is not active!");

@@ -6,7 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MapController {
@@ -30,7 +32,7 @@ public class MapController {
         for(Player player : Bukkit.getOnlinePlayers()){
             voteMap.put(player,-1);
         }
-        timeRemaining = 0;
+        timeRemaining = -1;
     }
 
     public static String getSelectedMap() {
@@ -73,6 +75,7 @@ public class MapController {
     public void tick(){
         if(timeRemaining == 0) {
             Utils.broadcastErrorMessage("Voting period is over!\nResults:\n" + getResultsString());
+            Bukkit.getServer().dispatchCommand((Bukkit.getOnlinePlayers().stream().toList()).get(0),"start");
         } else if(timeRemaining % 20 == 0) {
             int secondsRemaining = timeRemaining/20;
             int[] printStatements = {60,30,15,10,5,4,3,2,1};
@@ -82,26 +85,46 @@ public class MapController {
                 }
             }
         }
-        timeRemaining--;
+        if(timeRemaining >= 0) {
+            timeRemaining--;
+        }
+    }
+
+    public void terminateVotingProcess(){
+        timeRemaining = 0;
     }
 
     private String getResultsString(){
         int[] results = new int[MAPS.length];
+        for(int i : results){
+            results[i] = 0;
+        }
         for(Integer vote : voteMap.values()){
-            results[vote]++;
+            if(vote != -1) {
+                results[vote]++;
+            }
         }
         String result = "";
         int highestVotes = -1;
-        int highestVoteIndex = -1;
         int totalVotes = voteMap.size();
         for(int i = 0;i < results.length;i++){
-            result = result + (i+1) + ". " + MAPS[i] + ": " + results[i] + " (" + (int) (((double) results[i] / totalVotes) * 100) + "%)\n";
+            if(totalVotes != 0) {
+                result = result + (i + 1) + ". " + MAPS[i] + ": " + results[i] + " (" + (int) (((double) results[i] / totalVotes) * 100) + "%)\n";
+            }
+            else{
+                result = result + (i + 1) + ". " + MAPS[i] + ": " + results[i] + " (0%)\n";
+            }
             if (results[i] > highestVotes) {
                 highestVotes = results[i];
-                highestVoteIndex = i;
             }
         }
-        selectedMap = MAPS[highestVoteIndex];
+        List<Integer> tieVotes = new ArrayList<>();
+        for(int i = 0;i < results.length;i++){
+            if(results[i] == highestVotes) {
+                tieVotes.add(i);
+            }
+        }
+        setMap(MAPS[tieVotes.get(Utils.getRandom(0,tieVotes.size()-1))]);
         result = result + "Map vote winner is " + selectedMap + "!";
         return result;
     }
@@ -111,7 +134,7 @@ public class MapController {
     }
 
     public boolean isSelectionRunning(){
-        return timeRemaining <= VOTE_TIMER_LENGTH*20 && timeRemaining > 0;
+        return timeRemaining <= VOTE_TIMER_LENGTH*20 && timeRemaining >= 0;
     }
 
     public int getTimeRemaining(){
