@@ -1,11 +1,10 @@
 package com.scuffpvp.commands;
 
-import com.scuffpvp.ScuffPVP;
 import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.classes.Class;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
-import com.scuffpvp.utils.MapController;
+import com.scuffpvp.controllers.MapController;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -39,6 +38,10 @@ public class StartGameCommand implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if(Bukkit.getOnlinePlayers().size() <= 1) {
+            Utils.sendErrorMessage((Player) sender, "heh, loser");
+            return true;
+        }
         if(PlayerManager.isGameRunning()) {
             Utils.sendErrorMessage((Player) sender, "Game already started!");
             return true;

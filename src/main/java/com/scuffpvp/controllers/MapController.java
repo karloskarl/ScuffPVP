@@ -1,7 +1,7 @@
-package com.scuffpvp.utils;
+package com.scuffpvp.controllers;
 
 import com.scuffpvp.ScuffPVP;
-import com.scuffpvp.player.PlayerManager;
+import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -44,12 +44,16 @@ public class MapController {
         switch(MapController.getSelectedMap()) {
             case "Abandoned Castle":
                 mapLocation = ScuffPVP.ABANDONED_CASTLE;
+                break;
             case "Chateau":
                 mapLocation = ScuffPVP.CHATEAU;
+                break;
             case "Snowy Village":
                 mapLocation = ScuffPVP.SNOWY_VILLAGE;
+                break;
             case "Cage Match":
                 mapLocation = ScuffPVP.CAGE_MATCH;
+                break;
         }
         return mapLocation;
     }

@@ -1,16 +1,21 @@
 package com.scuffpvp.listeners;
 
+import com.scuffpvp.controllers.GameController;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
+import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class PlayerDeathListener implements Listener {
     private final PlayerManager playerManager;
+    private GameController gameController;
 
-    public PlayerDeathListener(PlayerManager playerManger) {
+    public PlayerDeathListener(PlayerManager playerManger, GameController gameController) {
         this.playerManager = playerManger;
+        this.gameController = gameController;
     }
 
     /**
@@ -19,6 +24,13 @@ public class PlayerDeathListener implements Listener {
      */
     @EventHandler
     public void onDeath(PlayerDeathEvent event){
-        PlayerData playerData = playerManager.getPlayerData(event.getEntity());
+        Player player = event.getEntity();
+        PlayerData playerData = playerManager.getPlayerData(player);
+        playerData.setLives(playerData.getLives() - 1);
+        if(playerData.getLives() == 0){
+            player.setGameMode(GameMode.SPECTATOR);
+        }
+        gameController.respawn(player);
+        gameController.winCheck();
     }
 }

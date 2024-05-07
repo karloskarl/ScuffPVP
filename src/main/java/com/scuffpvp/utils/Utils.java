@@ -24,6 +24,10 @@ public class Utils {
         player.sendMessage(formattedMessage);
     }
 
+    /**
+     * Sends an error message to every player
+     * @param message The message to be sent
+     */
     public static void broadcastErrorMessage(String message) {
         String formattedMessage = ChatColor.RED + "" + ChatColor.BOLD + message;
         for(Player player : Bukkit.getServer().getOnlinePlayers()){
@@ -41,6 +45,10 @@ public class Utils {
         player.sendMessage(formattedMessage);
     }
 
+    /**
+     * Sends a confirmation message to every player
+     * @param message The message to be sent
+     */
     public static void broadcastConfirmationMessage(String message) {
         String formattedMessage = ChatColor.GREEN + "" + ChatColor.BOLD + message;
         for(Player player : Bukkit.getServer().getOnlinePlayers()){

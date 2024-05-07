@@ -1,16 +1,10 @@
-package com.scuffpvp.utils;
+package com.scuffpvp.controllers;
 
 import com.scuffpvp.abilities.Ability;
-import com.scuffpvp.classes.Class;
-import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.Map;
 
 /**
  * BukkitRunnable whose run() method runs every tick.

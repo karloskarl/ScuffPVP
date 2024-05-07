@@ -12,6 +12,7 @@ import java.util.Map;
  */
 public class PlayerData {
     private Class chosenClass;
+    private int lives;
     private Player player;
 
     /**
@@ -44,5 +45,21 @@ public class PlayerData {
      */
     public void clearClass() {
         chosenClass = null;
+    }
+
+    /**
+     * Gets how many lives a player has
+     * @return lives
+     */
+    public int getLives(){
+        return lives;
+    }
+
+    /**
+     * Sets the number of lives a player has
+     * @param lives lives
+     */
+    public void setLives(int lives){
+        this.lives = lives;
     }
 }

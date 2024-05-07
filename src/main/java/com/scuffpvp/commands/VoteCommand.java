@@ -1,6 +1,6 @@
 package com.scuffpvp.commands;
 
-import com.scuffpvp.utils.MapController;
+import com.scuffpvp.controllers.MapController;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

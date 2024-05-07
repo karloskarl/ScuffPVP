@@ -56,10 +56,18 @@ public class PlayerManager {
         return playerMap.get(player);
     }
 
+    /**
+     * Returns if the game is currently running or not
+     * @return if the game is currently running or not
+     */
     public static boolean isGameRunning() {
         return gameRunning;
     }
 
+    /**
+     * Sets whether the game is running or not
+     * @param gameRunning whether the game is running
+     */
     public void setGameRunning(boolean gameRunning) {
         this.gameRunning = gameRunning;
     }
