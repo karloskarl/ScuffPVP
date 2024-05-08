@@ -20,7 +20,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
  * Class that hold the listener for the Bancroft Class
  */
 public class InteractionListener implements Listener{
-    private PlayerManager playerManager;
+    private final PlayerManager playerManager;
     private Bancroft playerClass;
 
     /**

@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class InventoryClickListener implements Listener {
-    private PlayerManager playerManager;
+    private final PlayerManager playerManager;
 
     public InventoryClickListener(PlayerManager playerManager) {
         this.playerManager = playerManager;

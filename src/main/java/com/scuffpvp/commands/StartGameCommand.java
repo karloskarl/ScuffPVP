@@ -2,6 +2,7 @@ package com.scuffpvp.commands;
 
 import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.classes.Class;
+import com.scuffpvp.controllers.GameController;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.controllers.MapController;
@@ -19,13 +20,15 @@ import org.bukkit.entity.Player;
 public class StartGameCommand implements CommandExecutor {
     private PlayerManager playerManager;
     private MapController mapController;
+    private GameController gameController;
 
     /**
      * Creates the command object.
      */
-    public StartGameCommand(PlayerManager playerManager, MapController mapController) {
+    public StartGameCommand(PlayerManager playerManager, MapController mapController, GameController gameController) {
         this.playerManager = playerManager;
         this.mapController = mapController;
+        this.gameController = gameController;
     }
 
     /**
@@ -71,6 +74,7 @@ public class StartGameCommand implements CommandExecutor {
         playerManager.setGameRunning(true);
         Utils.broadcastConfirmationMessage("Game started!");
         playerManager.setItems();
+        gameController.startGame();
         return true;
     }
 }

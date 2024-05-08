@@ -80,4 +80,6 @@
   - Add second map (chateau)
 - v0.3
   - Add Suzuka, Esteille, Glass
-  - Port to paper from spigot
+- v0.4
+  - Update to 1.20.5 (or 1.21 if its out already)
+  - switch from spigot to something more normal (need to do more research)

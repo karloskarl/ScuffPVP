@@ -11,7 +11,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class PlayerDeathListener implements Listener {
     private final PlayerManager playerManager;
-    private GameController gameController;
+    private final GameController gameController;
 
     public PlayerDeathListener(PlayerManager playerManger, GameController gameController) {
         this.playerManager = playerManger;
@@ -26,11 +26,12 @@ public class PlayerDeathListener implements Listener {
     public void onDeath(PlayerDeathEvent event){
         Player player = event.getEntity();
         PlayerData playerData = playerManager.getPlayerData(player);
-        playerData.setLives(playerData.getLives() - 1);
-        if(playerData.getLives() == 0){
-            player.setGameMode(GameMode.SPECTATOR);
+        if(PlayerManager.isGameRunning()) {
+            playerData.setLives(playerData.getLives() - 1);
+            if (playerData.getLives() == 0) {
+                player.setGameMode(GameMode.SPECTATOR);
+            }
+            gameController.winCheck();
         }
-        gameController.respawn(player);
-        gameController.winCheck();
     }
 }

@@ -128,7 +128,11 @@ public class MapController {
                 tieVotes.add(i);
             }
         }
-        setMap(MAPS[tieVotes.get(Utils.getRandom(0,tieVotes.size()-1))]);
+        if(tieVotes.size() > 1) {
+            setMap(MAPS[tieVotes.get(Utils.getRandom(0, tieVotes.size() - 1))]);
+        } else {
+            setMap(MAPS[tieVotes.get(0)]);
+        }
         result = result + "Map vote winner is " + selectedMap + "!";
         return result;
     }

@@ -1,6 +1,7 @@
 package com.scuffpvp.listeners;
 
 import com.scuffpvp.ScuffPVP;
+import com.scuffpvp.controllers.GameController;
 import com.scuffpvp.player.PlayerManager;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -16,13 +17,15 @@ import org.bukkit.potion.PotionEffectType;
  */
 public class JoinListener implements Listener {
     private final PlayerManager playerManager;
+    private final GameController gameController;
 
     /**
      * Creates the listener object
      * @param playerManager the playermanager object to use to assign
      */
-    public JoinListener(PlayerManager playerManager){
+    public JoinListener(PlayerManager playerManager, GameController gameController){
         this.playerManager = playerManager;
+        this.gameController = gameController;
     }
 
     /**
@@ -35,6 +38,9 @@ public class JoinListener implements Listener {
         playerManager.assignPlayer(player);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
+        player.getInventory().clear();
+        playerManager.getPlayerData(player).setLives(0);
+        gameController.displayLivesUpdate();
         if(PlayerManager.isGameRunning()) {
             player.setGameMode(GameMode.SPECTATOR);
         } else {

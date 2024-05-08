@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class PlayerDamageListener implements Listener {
-    private PlayerManager playerManager;
+    private final PlayerManager playerManager;
 
     public PlayerDamageListener(PlayerManager playerManager) {
         this.playerManager = playerManager;

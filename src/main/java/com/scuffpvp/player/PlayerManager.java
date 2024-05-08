@@ -66,9 +66,9 @@ public class PlayerManager {
 
     /**
      * Sets whether the game is running or not
-     * @param gameRunning whether the game is running
+     * @param running whether the game is running
      */
-    public void setGameRunning(boolean gameRunning) {
-        this.gameRunning = gameRunning;
+    public static void setGameRunning(boolean running) {
+        gameRunning = running;
     }
 }

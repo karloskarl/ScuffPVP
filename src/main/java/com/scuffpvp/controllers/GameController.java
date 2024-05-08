@@ -1,10 +1,17 @@
 package com.scuffpvp.controllers;
 
+import com.scuffpvp.ScuffPVP;
+import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
 import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,25 +26,25 @@ public class GameController {
      *
      *
      */
-    private MapController mapController;
     private PlayerManager playerManager;
-    private int GLOBAL_LIVES;
+    private final int GLOBAL_LIVES;
 
-    public GameController(MapController mapController, PlayerManager playerManager, int lives) {
-        this.mapController = mapController;
+    public GameController(PlayerManager playerManager, int lives) {
         this.playerManager = playerManager;
         GLOBAL_LIVES = lives;
     }
 
     public void startGame(){
+        displayLivesUpdate();
         for(Player p : Bukkit.getOnlinePlayers()){
-            respawn(p);
+            p.teleport(respawn());
             playerManager.getPlayerData(p).setLives(GLOBAL_LIVES);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
         }
     }
 
-    public void respawn(Player p){
-        p.teleport(MapController.getSelectedMapLocation());
+    public Location respawn(){
+        return MapController.getSelectedMapLocation();
     }
 
     public void winCheck() {
@@ -55,9 +62,37 @@ public class GameController {
             Utils.broadcastConfirmationMessage("DRAW!");
             endGame();
         }
+        displayLivesUpdate();
     }
 
     public void endGame(){
+        PlayerManager.setGameRunning(false);
+        for(Player p : Bukkit.getOnlinePlayers()){
+            p.teleport(ScuffPVP.SPAWN_AREA);
+            p.setGameMode(GameMode.ADVENTURE);
+            playerManager.getPlayerData(p).setLives(0);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
+            p.getInventory().clear();
+            Bukkit.getScoreboardManager().getMainScoreboard().resetScores(p.getName());
+        }
+    }
 
+    public void displayLivesUpdate(){
+        Scoreboard scoreboard;
+        try {
+            scoreboard = Bukkit.getScoreboardManager().getMainScoreboard();
+        } catch (NullPointerException e){
+            scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+            scoreboard.getObjective("Lives").setDisplaySlot(DisplaySlot.BELOW_NAME);
+            scoreboard.getObjective("Lives").setDisplaySlot(DisplaySlot.PLAYER_LIST);
+        }
+
+        for(Player p : Bukkit.getOnlinePlayers()){
+            PlayerData playerData = playerManager.getPlayerData(p);
+            p.setLevel(playerData.getLives());
+            p.setScoreboard(scoreboard);
+            scoreboard.getObjective("Lives").getScore(p.getName()).setScore(playerData.getLives());
+        }
     }
 }
