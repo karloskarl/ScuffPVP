@@ -18,14 +18,7 @@ import java.util.List;
 
 
 public class GameController {
-    /*
-     * 1. Player Spawning
-     * 2. Player Lives/Death/Respawning
-     * 3. Win Condition
-     * 4. Reset Game
-     *
-     *
-     */
+
     private PlayerManager playerManager;
     private final int GLOBAL_LIVES;
 

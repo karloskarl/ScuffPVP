@@ -43,6 +43,7 @@ public class StartGameCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(Bukkit.getOnlinePlayers().size() <= 1) {
             Utils.sendErrorMessage((Player) sender, "heh, loser");
+            mapController.setMap("");
             return true;
         }
         if(PlayerManager.isGameRunning()) {

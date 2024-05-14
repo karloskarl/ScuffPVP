@@ -35,6 +35,8 @@ public class MapController {
         timeRemaining = -1;
     }
 
+    //TODO: Make vote end prematurely when everyone has selected a class and voted
+
     public static String getSelectedMap() {
         return selectedMap;
     }
@@ -63,17 +65,17 @@ public class MapController {
      * @param name The name of the map to be selected
      * @return If the map was set correctly
      */
-    public boolean setMap(String name) {
-        if(!selectedMap.equals("")) {
-            return false;
+    public void setMap(String name) {
+        if(name.equals("")) {
+            selectedMap = "";
+            return;
         }
         for(String map : MAPS){
             if(name.equals(map)){
                 selectedMap = map;
-                return true;
+                return;
             }
         }
-        return false;
     }
 
     public void tick(){

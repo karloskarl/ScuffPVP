@@ -48,4 +48,5 @@ public class JoinListener implements Listener {
             player.teleport(ScuffPVP.SPAWN_AREA);
         }
     }
+    //TODO: Add a leave Listener so game doesn't break when server crashes/everyone leaves/etc.
 }

@@ -19,3 +19,49 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+tasks.register('buildAndDeployPlugin') {
+    // Check if the server is running
+    def isServerRunning = false
+    doFirst {
+        exec {
+            commandLine 'cmd', '/c', 'wmic', 'process', 'where', 'caption="java.exe" and CommandLine like "%spigot-1.20.2.jar%"', '|', 'findstr', '/r', '/c:"^java.exe"'
+            ignoreExitValue true
+        }
+    }
+    // Set flag if server is running
+    doLast {
+        if (exec.exitValue == 0) {
+            isServerRunning = true
+        }
+    }
+
+    // Stop the server if running
+    doLast {
+        if (isServerRunning) {
+            exec {
+                commandLine 'cmd', '/c', 'wmic', 'process', 'where', 'caption="java.exe" and CommandLine like "%spigot-1.20.2.jar%"', 'call', 'terminate'
+                ignoreExitValue true
+            }
+        }
+    }
+
+    // Compile the plugin jar
+    dependsOn 'build'
+
+    // Deploy the plugin jar
+    doLast {
+        copy {
+            from 'build/libs' // Adjust the source directory as per your project structure
+            into 'C:/Programmid/ScuffPVP/Server/plugins' // Adjust the destination directory
+            include '*.jar' // Include only jar files
+        }
+    }
+
+    // Start the server
+    doLast {
+        exec {
+            commandLine 'cmd', '/c', 'start', 'C:/Programmid/ScuffPVP/Server/start.bat'
+        }
+    }
+}
