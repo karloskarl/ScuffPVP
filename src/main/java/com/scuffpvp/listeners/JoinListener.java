@@ -3,6 +3,8 @@ package com.scuffpvp.listeners;
 import com.scuffpvp.ScuffPVP;
 import com.scuffpvp.controllers.GameController;
 import com.scuffpvp.player.PlayerManager;
+import com.scuffpvp.utils.Utils;
+import jdk.jshell.execution.Util;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -36,10 +38,12 @@ public class JoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
         playerManager.assignPlayer(player);
+        Utils.clearPotionEffects(player);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
         player.getInventory().clear();
         playerManager.getPlayerData(player).setLives(0);
+        playerManager.getPlayerData(player).clearClass();
         gameController.displayLivesUpdate();
         if(PlayerManager.isGameRunning()) {
             player.setGameMode(GameMode.SPECTATOR);
@@ -48,5 +52,4 @@ public class JoinListener implements Listener {
             player.teleport(ScuffPVP.SPAWN_AREA);
         }
     }
-    //TODO: Add a leave Listener so game doesn't break when server crashes/everyone leaves/etc.
 }

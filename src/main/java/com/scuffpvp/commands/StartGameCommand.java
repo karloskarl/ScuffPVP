@@ -73,6 +73,7 @@ public class StartGameCommand implements CommandExecutor {
             return true;
         }
         playerManager.setGameRunning(true);
+        gameController.displayLivesUpdate();
         Utils.broadcastConfirmationMessage("Game started!");
         playerManager.setItems();
         gameController.startGame();

@@ -41,7 +41,7 @@ public class ScuffPVP extends JavaPlugin {
         getCommand("class").setExecutor(new SelectClassCommand(playerManager, mapController));
         getCommand("start").setExecutor(new StartGameCommand(playerManager, mapController, gameController));
         getCommand("vote").setExecutor(new VoteCommand(mapController));
-        getCommand("startSelection").setExecutor(new StartSelectionCommand(mapController));
+        getCommand("startSelection").setExecutor(new StartSelectionCommand(mapController, playerManager));
         //registers the listeners
         getServer().getPluginManager().registerEvents(new InteractionListener(playerManager), this);
         getServer().getPluginManager().registerEvents(new JoinListener(playerManager, gameController), this);
@@ -50,6 +50,7 @@ public class ScuffPVP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemDropListener(playerManager),this);
         getServer().getPluginManager().registerEvents(new InventoryClickListener(playerManager),this);
         getServer().getPluginManager().registerEvents(new PlayerRespawnListener(gameController),this);
+        getServer().getPluginManager().registerEvents(new PlayerLeaveListener(gameController),this);
 
         SPAWN_AREA = new Location(Bukkit.getWorld("ScuffPVP"),5028.5,245,28.5);
         CAGE_MATCH = new Location(Bukkit.getWorld("ScuffPVP"),20,-60,-24);

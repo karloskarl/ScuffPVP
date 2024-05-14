@@ -29,9 +29,6 @@ public class MapController {
     public MapController() {
         selectedMap = "";
         voteMap = new HashMap<>();
-        for(Player player : Bukkit.getOnlinePlayers()){
-            voteMap.put(player,-1);
-        }
         timeRemaining = -1;
     }
 
@@ -67,7 +64,7 @@ public class MapController {
      */
     public void setMap(String name) {
         if(name.equals("")) {
-            selectedMap = "";
+            selectedMap = name;
             return;
         }
         for(String map : MAPS){
@@ -79,6 +76,7 @@ public class MapController {
     }
 
     public void tick(){
+        boolean everyoneHasVoted = false;
         if(timeRemaining == 0) {
             Utils.broadcastErrorMessage("Voting period is over!\nResults:\n" + getResultsString());
             Bukkit.getServer().dispatchCommand((Bukkit.getOnlinePlayers().stream().toList()).get(0),"start");
@@ -90,9 +88,18 @@ public class MapController {
                     Utils.broadcastConfirmationMessage(secondsRemaining + " seconds remaining to make your selections!");
                 }
             }
+            everyoneHasVoted = true;
+            for(Player player : Bukkit.getOnlinePlayers()){
+                if(voteMap.get(player) == -1) {
+                    everyoneHasVoted = false;
+                }
+            }
         }
         if(timeRemaining >= 0) {
             timeRemaining--;
+        }
+        if(everyoneHasVoted) {
+            terminateVotingProcess();
         }
     }
 
@@ -157,5 +164,15 @@ public class MapController {
 
     public void startVote(){
         timeRemaining = 20*VOTE_TIMER_LENGTH;
+    }
+
+    public void clear() {
+        for(Player player : Bukkit.getOnlinePlayers()){
+            voteMap.put(player,-1);
+        }
+    }
+
+    public static void resetMap(){
+        selectedMap = "";
     }
 }

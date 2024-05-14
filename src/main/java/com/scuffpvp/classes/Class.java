@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Class {
-    //TODO: Add a potion ability field along with all other infrastructure to support it
     /**
      * Maximum health value
      */

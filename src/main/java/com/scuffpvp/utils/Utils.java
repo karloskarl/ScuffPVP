@@ -14,6 +14,7 @@ import java.util.Random;
  * The Util class contains various miscellaneous utilities used by other parts of the program.
  */
 public class Utils {
+    public static final String ERROR_MESSAGE = "YOUR DUMB, PUSSY!";
     /**
      * Sends an error message to the specified player in game chat.
      * @param player The specified player

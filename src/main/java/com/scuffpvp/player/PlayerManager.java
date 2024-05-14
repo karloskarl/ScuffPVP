@@ -2,8 +2,12 @@ package com.scuffpvp.player;
 
 import com.scuffpvp.ScuffPVP;
 import com.scuffpvp.abilities.Ability;
+import com.scuffpvp.classes.Class;
+import com.scuffpvp.classes.Spectator;
 import com.scuffpvp.player.PlayerData;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -43,7 +47,14 @@ public class PlayerManager {
      */
     public void setItems() {
         for(Player player : Bukkit.getOnlinePlayers()) {
-            getPlayerData(player).getPlayerClass().generateClassItems().forEach((k,v) -> player.getInventory().setItem(k, v));
+            Class playerClass = getPlayerData(player).getPlayerClass();
+            playerClass.generateClassItems().forEach((k,v) -> player.getInventory().setItem(k, v));
+            player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(playerClass.getHealth());
+            player.setHealth(playerClass.getHealth());
+            player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(playerClass.getSpeed());
+            if(playerClass instanceof Spectator){
+                player.setGameMode(GameMode.SPECTATOR);
+            }
         }
     }
 

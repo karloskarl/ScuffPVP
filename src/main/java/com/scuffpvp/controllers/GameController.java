@@ -7,6 +7,7 @@ import com.scuffpvp.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -67,8 +68,11 @@ public class GameController {
             p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, PotionEffect.INFINITE_DURATION, 100, true));
             p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
             p.getInventory().clear();
+            p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20);
+            p.setHealth(20);
             Bukkit.getScoreboardManager().getMainScoreboard().resetScores(p.getName());
         }
+        MapController.resetMap();
     }
 
     public void displayLivesUpdate(){

@@ -45,6 +45,7 @@ public class SelectClassCommand implements CommandExecutor {
             }
             switch (args[0].toLowerCase()) {
                 case "bancroft" -> playerManager.getPlayerData(player).setClass(new Bancroft(player, playerManager));
+                case "spectator" -> playerManager.getPlayerData(player).setClass(new Spectator(player, playerManager));
                 case "list" -> {
                     player.sendMessage("""
                             Hansa
