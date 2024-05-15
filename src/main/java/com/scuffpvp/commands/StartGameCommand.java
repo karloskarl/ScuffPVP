@@ -2,6 +2,7 @@ package com.scuffpvp.commands;
 
 import com.scuffpvp.abilities.Ability;
 import com.scuffpvp.classes.Class;
+import com.scuffpvp.classes.Spectator;
 import com.scuffpvp.controllers.GameController;
 import com.scuffpvp.player.PlayerData;
 import com.scuffpvp.player.PlayerManager;
@@ -54,12 +55,17 @@ public class StartGameCommand implements CommandExecutor {
             Utils.sendErrorMessage((Player) sender, "Map selection isn't running!");
             return true;
         }
+        int spectatorCount = 0;
         for (Player player : Bukkit.getOnlinePlayers()) {
             PlayerData playerData = playerManager.getPlayerData(player);
             Class playerClass = playerData.getPlayerClass();
-            if(playerClass == null) {
-                Utils.sendErrorMessage((Player) sender,"Someone hasn't chosen a class!");
-                return true;
+            if(playerClass instanceof Spectator) {
+                spectatorCount++;
+                if(spectatorCount >= Bukkit.getOnlinePlayers().size() - 1) {
+                    Utils.broadcastErrorMessage("To few people have chosen a class!");
+                    gameController.endGame();
+                    return true;
+                }
             } else {
                 for (Ability ability : playerClass.getAbilities()) {
                     ability.setTimeOfUse(ability.getCooldown());

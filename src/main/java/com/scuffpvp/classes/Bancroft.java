@@ -16,7 +16,7 @@ public class Bancroft extends Class {
 
     //TODO: Make these values constants somewhere, or make a .cfg file to easily control values
     public Bancroft(Player player, PlayerManager playerManager) {
-        super(30, "Bancroft", 0.075, playerManager);
+        super(30, "Bancroft", 0.525, playerManager);
         addAbility(new Stomp(player, playerManager));
         addAbility(new Parry(player, playerManager));
         addAbility(new Sword(player, playerManager));

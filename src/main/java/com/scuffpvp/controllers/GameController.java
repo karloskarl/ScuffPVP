@@ -69,6 +69,7 @@ public class GameController {
             p.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, PotionEffect.INFINITE_DURATION, 100, true));
             p.getInventory().clear();
             p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20);
+            p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.7);
             p.setHealth(20);
             Bukkit.getScoreboardManager().getMainScoreboard().resetScores(p.getName());
         }
